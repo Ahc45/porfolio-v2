@@ -1,0 +1,52 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Linux penguin-inspired geometric design -->
+  <g transform="translate(20,20)" filter="url(#glow)">
+    <!-- Head/body outline -->
+    <path d="M-6,-12 Q-10,-10 -10,-6 Q-12,-2 -10,2 Q-8,6 -4,8 Q0,10 4,8 Q8,6 10,2 Q12,-2 10,-6 Q10,-10 6,-12 Q2,-14 -2,-14 Q-6,-12 -6,-12 Z" 
+          fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <path d="M-6,-12 Q-10,-10 -10,-6 Q-12,-2 -10,2 Q-8,6 -4,8 Q0,10 4,8 Q8,6 10,2 Q12,-2 10,-6 Q10,-10 6,-12 Q2,-14 -2,-14 Q-6,-12 -6,-12 Z" 
+          fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Eyes -->
+    <circle cx="-3" cy="-8" r="1.5" fill="#FF4654"/>
+    <circle cx="3" cy="-8" r="1.5" fill="#FF4654"/>
+    <circle cx="-3" cy="-8" r="0.5" fill="#0D1117"/>
+    <circle cx="3" cy="-8" r="0.5" fill="#0D1117"/>
+    
+    <!-- Beak/nose -->
+    <path d="M-1,-5 L0,-3 L1,-5 Z" fill="#FF4654" opacity="0.8"/>
+    
+    <!-- Belly -->
+    <ellipse cx="0" cy="0" rx="4" ry="6" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Feet -->
+    <ellipse cx="-3" cy="8" rx="2" ry="1" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.8"/>
+    <ellipse cx="3" cy="8" rx="2" ry="1" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.8"/>
+    
+    <!-- Arms -->
+    <ellipse cx="-8" cy="0" rx="1" ry="3" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.8"/>
+    <ellipse cx="8" cy="0" rx="1" ry="3" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.8"/>
+    
+    <!-- Linux text -->
+    <text x="0" y="2" text-anchor="middle" font-family="monospace" font-size="3" 
+          fill="#FF4654" font-weight="bold">LUX</text>
+    
+    <!-- Terminal connection -->
+    <rect x="-2" y="10" width="4" height="2" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="8" x2="0" y2="10" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Connection points -->
+    <circle cx="-2" cy="-14" r="1" fill="#FF4654" opacity="0.6"/>
+    <circle cx="2" cy="-14" r="1" fill="#FF4654" opacity="0.6"/>
+  </g>
+</svg>

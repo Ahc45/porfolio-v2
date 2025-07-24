@@ -1,0 +1,30 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">  
+  <!-- Valorant email tactical display -->
+  <g>
+    <!-- Main email container -->
+    <rect x="4" y="8" width="24" height="16" 
+          fill="none" stroke="#FF4654" stroke-width="2"/>
+    <rect x="4" y="8" width="24" height="16" 
+          fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Email envelope flap -->
+    <path d="M4 8L16 16L28 8" stroke="#FF4654" stroke-width="2" fill="none"/>
+    
+    <!-- Tactical scan lines -->
+    <line x1="6" y1="12" x2="26" y2="12" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    <line x1="6" y1="16" x2="22" y2="16" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="6" y1="20" x2="26" y2="20" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Security indicators -->
+    <circle cx="24" cy="10" r="1" fill="#FF4654"/>
+    <circle cx="26" cy="12" r="0.8" fill="#FF4654" opacity="0.8"/>
+    
+    <!-- Corner brackets -->
+    <path d="M4,8 L6,8 M4,8 L4,10 M26,8 L28,8 M28,8 L28,10 M4,22 L4,24 M4,24 L6,24 M28,22 L28,24 M26,24 L28,24" 
+          stroke="#FF4654" stroke-width="1.5" fill="none"/>
+    
+    <!-- Central targeting -->
+    <circle cx="16" cy="16" r="2" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <circle cx="16" cy="16" r="1" fill="#FF4654" opacity="0.8"/>
+  </g>
+</svg>

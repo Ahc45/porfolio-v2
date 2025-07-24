@@ -15,23 +15,23 @@ const Hero = () => {
       index++;
       if (index > fullText.length) {
         clearInterval(timer);
+        setText(fullText); // Ensure full text is displayed
         setTimeout(() => setIsGlitching(true), 500);
       }
     }, 100);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [fullText]);
 
-  // Periodic name glitch effect every 5 seconds
+  // Periodic name glitch effect every 2 seconds
   useEffect(() => {
     const glitchInterval = setInterval(() => {
       setNameGlitch(true);
       setTimeout(() => setNameGlitch(false), 400);
-    }, 5000);
+    }, 2000); // Changed from 5000 to 2000 milliseconds
 
     return () => clearInterval(glitchInterval);
   }, []);
-
 
   return (
     <section className="hero">
@@ -58,7 +58,7 @@ const Hero = () => {
               isGlitching || nameGlitch ? "glitch" : ""
             }`}
           >
-            {text}
+            {text || fullText}
             <span className="cursor">|</span>
           </h1>
           <div className="hero-subtitle">
@@ -72,8 +72,6 @@ const Hero = () => {
           </p>
           <div className="hero-actions">
             <div className="hero-callout">
-              <div className="callout-line"></div>
-              <span className="callout-text">Navigate above to explore my arsenal</span>
               <div className="callout-arrow">↑</div>
             </div>
           </div>

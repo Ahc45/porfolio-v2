@@ -1,0 +1,44 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Node.js hexagonal structure -->
+  <g transform="translate(20,20)" filter="url(#glow)">
+    <path d="M0,-12 L10,-6 L10,6 L0,12 L-10,6 L-10,-6 Z" 
+          fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <path d="M0,-12 L10,-6 L10,6 L0,12 L-10,6 L-10,-6 Z" 
+          fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Inner structure -->
+    <path d="M0,-8 L6,-4 L6,4 L0,8 L-6,4 L-6,-4 Z" 
+          fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Central node symbol -->
+    <circle cx="0" cy="0" r="3" fill="#FF4654" opacity="0.8"/>
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="3" 
+          fill="#0D1117" font-weight="bold">N</text>
+    
+    <!-- Connection points -->
+    <circle cx="0" cy="-12" r="1.5" fill="#FF4654"/>
+    <circle cx="10" cy="-6" r="1.5" fill="#FF4654"/>
+    <circle cx="10" cy="6" r="1.5" fill="#FF4654"/>
+    <circle cx="0" cy="12" r="1.5" fill="#FF4654"/>
+    <circle cx="-10" cy="6" r="1.5" fill="#FF4654"/>
+    <circle cx="-10" cy="-6" r="1.5" fill="#FF4654"/>
+    
+    <!-- Internal connections -->
+    <line x1="0" y1="-8" x2="0" y2="-12" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="6" y1="-4" x2="10" y2="-6" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="6" y1="4" x2="10" y2="6" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="0" y1="8" x2="0" y2="12" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="-6" y1="4" x2="-10" y2="6" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="-6" y1="-4" x2="-10" y2="-6" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+  </g>
+</svg>

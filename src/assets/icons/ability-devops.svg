@@ -1,0 +1,56 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="devopsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4654;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D4FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- DevOps targeting system -->
+  <g transform="translate(30,30)" filter="url(#glow)">
+    <!-- Outer targeting ring -->
+    <circle cx="0" cy="0" r="20" fill="none" stroke="url(#devopsGrad)" stroke-width="3"/>
+    
+    <!-- Inner targeting ring -->
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#FF4654" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Crosshair -->
+    <line x1="-25" y1="0" x2="-20" y2="0" stroke="#00D4FF" stroke-width="2"/>
+    <line x1="20" y1="0" x2="25" y2="0" stroke="#00D4FF" stroke-width="2"/>
+    <line x1="0" y1="-25" x2="0" y2="-20" stroke="#00D4FF" stroke-width="2"/>
+    <line x1="0" y1="20" x2="0" y2="25" stroke="#00D4FF" stroke-width="2"/>
+    
+    <!-- Diagonal targeting lines -->
+    <line x1="-18" y1="-18" x2="-14" y2="-14" stroke="#FFCC00" stroke-width="2"/>
+    <line x1="14" y1="-14" x2="18" y2="-18" stroke="#FFCC00" stroke-width="2"/>
+    <line x1="14" y1="14" x2="18" y2="18" stroke="#FFCC00" stroke-width="2"/>
+    <line x1="-14" y1="14" x2="-18" y2="18" stroke="#FFCC00" stroke-width="2"/>
+    
+    <!-- Central targeting dot -->
+    <circle cx="0" cy="0" r="4" fill="url(#devopsGrad)"/>
+    
+    <!-- Tactical frame -->
+    <rect x="-25" y="-25" width="50" height="50" fill="none" stroke="#00D4FF" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Corner brackets -->
+    <path d="M-25,-25 L-20,-25 M-25,-25 L-25,-20 M20,-25 L25,-25 M25,-25 L25,-20 M-25,20 L-25,25 M-25,25 L-20,25 M25,20 L25,25 M20,25 L25,25" 
+          stroke="#00D4FF" stroke-width="2" fill="none"/>
+    
+    <!-- Radar sweep indicators -->
+    <circle cx="0" cy="-20" r="1.5" fill="#00D4FF"/>
+    <circle cx="20" cy="0" r="1.5" fill="#FFCC00"/>
+    <circle cx="0" cy="20" r="1.5" fill="#00FF88"/>
+    <circle cx="-20" cy="0" r="1.5" fill="#FF4654"/>
+    
+    <!-- Central identifier -->
+    <text x="0" y="2" text-anchor="middle" font-family="monospace" font-size="4" 
+          fill="#0D1117" font-weight="bold">D</text>
+  </g>
+</svg>

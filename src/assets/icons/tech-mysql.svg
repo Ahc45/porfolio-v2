@@ -1,0 +1,41 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- MySQL database structure -->
+  <g transform="translate(20,20)" filter="url(#glow)">
+    <!-- Database cylinder top -->
+    <ellipse cx="0" cy="-8" rx="12" ry="4" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <ellipse cx="0" cy="-8" rx="12" ry="4" fill="#FF4654" opacity="0.2"/>
+    
+    <!-- Database cylinder body -->
+    <rect x="-12" y="-8" width="24" height="16" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <rect x="-12" y="-8" width="24" height="16" fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Database cylinder bottom -->
+    <ellipse cx="0" cy="8" rx="12" ry="4" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <ellipse cx="0" cy="8" rx="12" ry="4" fill="#FF4654" opacity="0.2"/>
+    
+    <!-- Internal data layers -->
+    <ellipse cx="0" cy="-4" rx="10" ry="2" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    <ellipse cx="0" cy="0" rx="10" ry="2" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    <ellipse cx="0" cy="4" rx="10" ry="2" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- MySQL text */
+    <text x="0" y="-1" text-anchor="middle" font-family="monospace" font-size="4" 
+          fill="#FF4654" font-weight="bold">SQL</text>
+    
+    <!-- Side connections -->
+    <circle cx="-14" cy="0" r="1" fill="#FF4654"/>
+    <circle cx="14" cy="0" r="1" fill="#FF4654"/>
+    <line x1="-12" y1="0" x2="-14" y2="0" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="12" y1="0" x2="14" y2="0" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+  </g>
+</svg>

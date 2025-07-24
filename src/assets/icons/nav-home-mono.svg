@@ -1,0 +1,43 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Monochromatic red home -->
+  <g filter="url(#glow)">
+    <!-- Main house outline -->
+    <path d="M12 3L20 9V20C20 20.5 19.5 21 19 21H5C4.5 21 4 20.5 4 20V9L12 3Z" 
+          fill="none" stroke="#FF4654" stroke-width="2"/>
+    <path d="M12 3L20 9V20C20 20.5 19.5 21 19 21H5C4.5 21 4 20.5 4 20V9L12 3Z" 
+          fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Roof highlight -->
+    <path d="M12 3L20 9H4L12 3Z" fill="#FF4654" opacity="0.3"/>
+    
+    <!-- Door -->
+    <rect x="9" y="14" width="6" height="7" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <rect x="9" y="14" width="6" height="7" fill="#FF4654" opacity="0.2"/>
+    
+    <!-- Windows -->
+    <rect x="6" y="11" width="4" height="4" fill="none" stroke="#FF4654" stroke-width="1"/>
+    <rect x="14" y="11" width="4" height="4" fill="none" stroke="#FF4654" stroke-width="1"/>
+    
+    <!-- Window lights -->
+    <rect x="6" y="11" width="4" height="4" fill="#FF4654" opacity="0.25"/>
+    <rect x="14" y="11" width="4" height="4" fill="#FF4654" opacity="0.25"/>
+    
+    <!-- Central beacon -->
+    <circle cx="12" cy="12" r="2" fill="#FF4654" opacity="0.6"/>
+    <circle cx="12" cy="12" r="1" fill="#FF4654"/>
+    
+    <!-- Corner brackets -->
+    <path d="M4,9 L6,9 M4,9 L4,11 M18,9 L20,9 M20,9 L20,11 M4,18 L4,20 M4,20 L6,20 M20,18 L20,20 M18,20 L20,20" 
+          stroke="#FF4654" stroke-width="1.5" fill="none" opacity="0.8"/>
+  </g>
+</svg>

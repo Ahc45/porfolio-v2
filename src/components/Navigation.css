@@ -1,3 +1,690 @@
+/* New Horizontal Navigation Styles */
+.valorant-nav-horizontal {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  max-width: 480px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.98) 0%, rgba(15, 20, 25, 0.98) 100%);
+  border: 1px solid rgba(255, 70, 84, 0.3);
+  clip-path: polygon(4px 0%, calc(100% - 4px) 0%, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0% calc(100% - 4px), 0% 4px);
+  padding: 0 15px;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  font-family: 'Valorant', 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(255, 70, 84, 0.2);
+}
+
+.valorant-nav-horizontal.scrolled {
+  top: 10px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--valorant-darker) 0%, var(--valorant-blue) 50%, var(--valorant-darker) 100%);
+  border-color: var(--valorant-cyan);
+}
+
+.nav-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, var(--valorant-red) 50%, transparent 100%);
+  opacity: 0.1;
+  border-radius: 6px;
+}
+
+/* Navigation Items Container */
+.nav-items-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+}
+
+.nav-section {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-item-horizontal {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 70, 84, 0.1);
+  border: 1px solid rgba(255, 70, 84, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: visible;
+}
+
+/* Directional clipping for left side icons (\) */
+.nav-left .nav-item-horizontal {
+  clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+}
+
+/* Directional clipping for right side icons (/) */
+.nav-right .nav-item-horizontal {
+  clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 8px, 100% 100%, 8px 100%, 0% calc(100% - 8px));
+}
+
+.nav-item-horizontal:hover {
+  background: rgba(255, 70, 84, 0.2);
+  border-color: rgba(255, 70, 84, 0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(255, 70, 84, 0.4);
+}
+
+.nav-item-horizontal.active {
+  background: rgba(255, 70, 84, 0.15);
+  border-color: rgba(255, 70, 84, 0.9);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 70, 84, 0.5), inset 0 0 6px rgba(255, 70, 84, 0.1);
+}
+
+.nav-icon-horizontal {
+  position: relative;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 0 4px rgba(255, 70, 84, 0.6));
+  transition: all 0.3s ease;
+}
+
+.nav-icon-horizontal img {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-item-horizontal:hover .nav-icon-horizontal {
+  filter: drop-shadow(0 0 8px rgba(255, 70, 84, 0.9));
+  transform: scale(1.1);
+}
+
+.nav-item-horizontal.active .nav-icon-horizontal {
+  filter: drop-shadow(0 0 8px rgba(255, 70, 84, 0.8)) brightness(1.2);
+  transform: scale(1.15);
+}
+
+/* Valorant edge accents */
+.nav-item-horizontal::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    rgba(255, 70, 84, 0.6) 10%, 
+    transparent 20%,
+    transparent 80%,
+    rgba(255, 70, 84, 0.6) 90%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+/* Edge accent clipping for left side icons */
+.nav-left .nav-item-horizontal::before {
+  clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+}
+
+/* Edge accent clipping for right side icons */
+.nav-right .nav-item-horizontal::before {
+  clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 8px, 100% 100%, 8px 100%, 0% calc(100% - 8px));
+}
+
+.nav-item-horizontal:hover::before {
+  opacity: 0.7;
+}
+
+.nav-item-horizontal.active::before {
+  opacity: 0.6;
+  background: linear-gradient(45deg, 
+    rgba(255, 70, 84, 0.4) 0%, 
+    rgba(255, 70, 84, 0.6) 10%, 
+    rgba(255, 70, 84, 0.4) 20%,
+    rgba(255, 70, 84, 0.4) 80%,
+    rgba(255, 70, 84, 0.6) 90%,
+    rgba(255, 70, 84, 0.4) 100%
+  );
+}
+
+/* Corner accent lines */
+.nav-item-horizontal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(255, 70, 84, 0.8) 0px, rgba(255, 70, 84, 0.8) 6px, transparent 6px),
+    linear-gradient(180deg, rgba(255, 70, 84, 0.8) 0px, rgba(255, 70, 84, 0.8) 6px, transparent 6px),
+    linear-gradient(270deg, rgba(255, 70, 84, 0.8) 0px, rgba(255, 70, 84, 0.8) 6px, transparent 6px),
+    linear-gradient(0deg, rgba(255, 70, 84, 0.8) 0px, rgba(255, 70, 84, 0.8) 6px, transparent 6px);
+  background-position: top left, top left, top right, bottom left;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Corner accent clipping for left side icons */
+.nav-left .nav-item-horizontal::after {
+  clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+}
+
+/* Corner accent clipping for right side icons */
+.nav-right .nav-item-horizontal::after {
+  clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 8px, 100% 100%, 8px 100%, 0% calc(100% - 8px));
+}
+
+.nav-item-horizontal.active::after {
+  opacity: 0.8;
+}
+
+
+.nav-item-glow-horizontal {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--valorant-red), var(--valorant-cyan), var(--valorant-green), var(--valorant-red));
+  border-radius: 10px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.nav-item-horizontal:hover .nav-item-glow-horizontal {
+  opacity: 0.3;
+  animation: rotate-glow 2s linear infinite;
+}
+
+/* Center HIRE ME Button */
+.nav-center {
+  position: relative;
+}
+
+.hire-me-btn {
+  position: relative;
+  width: 140px;
+  height: 42px;
+  background: rgba(255, 70, 84, 0.2);
+  border: 1px solid rgba(255, 70, 84, 0.6);
+  clip-path: polygon(4px 0%, calc(100% - 4px) 0%, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0% calc(100% - 4px), 0% 4px);
+  color: white;
+  font-family: 'Valorant', 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 12px rgba(255, 70, 84, 0.3);
+}
+
+.hire-me-btn:hover {
+  background: rgba(255, 70, 84, 0.3);
+  transform: scale(1.02);
+  box-shadow: 0 0 18px rgba(255, 70, 84, 0.5);
+  border-color: rgba(255, 70, 84, 0.8);
+}
+
+.hire-me-btn.unlocked {
+  background: rgba(0, 255, 136, 0.2);
+  border: 1px solid rgba(0, 255, 136, 0.8);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+.hire-btn-bg {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.hire-me-btn:hover .hire-btn-bg {
+  left: 100%;
+}
+
+.hire-btn-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.hire-btn-icon {
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.unlock-indicator {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  background: var(--valorant-green);
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: white;
+  animation: unlock-pulse 2s ease-in-out infinite;
+}
+
+.hire-btn-corners {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--valorant-cyan);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.corner-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.corner-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+.corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+.hire-me-btn:hover .corner {
+  opacity: 1;
+}
+
+/* Tactical Scan Lines */
+.nav-scan-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--valorant-cyan), transparent);
+  opacity: 0.4;
+}
+
+.scan-line-1 {
+  top: 20%;
+  animation: scan-horizontal 3s ease-in-out infinite;
+}
+
+.scan-line-2 {
+  bottom: 20%;
+  animation: scan-horizontal 3s ease-in-out infinite reverse;
+}
+
+/* Mini-Game Styles */
+.skill-target-game-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(13, 17, 23, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+}
+
+.skill-target-game {
+  width: 90%;
+  max-width: 800px;
+  height: 80%;
+  max-height: 600px;
+  background: linear-gradient(135deg, var(--valorant-darker), var(--valorant-blue));
+  border: 3px solid var(--valorant-red);
+  border-radius: 12px;
+  padding: 20px;
+  font-family: 'Valorant', 'Inter', sans-serif;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--valorant-red);
+}
+
+.game-header h3 {
+  color: var(--valorant-red);
+  font-size: 24px;
+  margin: 0;
+  text-shadow: 0 0 10px var(--valorant-red);
+}
+
+.game-close {
+  background: none;
+  border: 2px solid var(--valorant-red);
+  color: var(--valorant-red);
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.game-close:hover {
+  background: var(--valorant-red);
+  color: white;
+}
+
+.game-intro {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.game-briefing {
+  margin-bottom: 30px;
+}
+
+.game-briefing p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.game-start-btn, .game-retry-btn {
+  background: linear-gradient(135deg, var(--valorant-red), var(--valorant-accent));
+  border: 3px solid var(--valorant-red);
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Valorant', 'Inter', sans-serif;
+}
+
+.game-start-btn:hover, .game-retry-btn:hover {
+  border-color: var(--valorant-yellow);
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 70, 84, 0.4);
+}
+
+.game-arena {
+  height: calc(100% - 80px);
+  position: relative;
+}
+
+.game-hud {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--valorant-red);
+}
+
+.hud-score, .hud-timer {
+  font-size: 18px;
+  font-weight: bold;  
+  color: var(--valorant-cyan);
+  text-shadow: 0 0 8px var(--valorant-cyan);
+}
+
+.targets-container {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 50px);
+  background: linear-gradient(135deg, var(--valorant-dark), var(--valorant-blue));
+  border: 2px solid var(--valorant-red);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.skill-target {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--valorant-red), var(--valorant-accent));
+  border: 2px solid var(--valorant-red);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: crosshair;
+  transition: all 0.3s ease;
+  animation: target-pulse 2s ease-in-out infinite;
+}
+
+.skill-target:hover {
+  transform: scale(1.1);
+  border-color: var(--valorant-yellow);
+  box-shadow: 0 0 20px var(--valorant-red);
+}
+
+.skill-target.hit {
+  background: linear-gradient(135deg, var(--valorant-green), var(--valorant-cyan));
+  border-color: var(--valorant-green);
+  animation: target-hit 0.5s ease-out;
+  cursor: default;
+}
+
+.target-crosshair {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.target-crosshair::before,
+.target-crosshair::after {
+  content: '';
+  position: absolute;
+  background: white;
+}
+
+.target-crosshair::before {
+  top: 50%;
+  left: -5px;
+  right: -5px;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.target-crosshair::after {
+  left: 50%;
+  top: -5px;
+  bottom: -5px;
+  width: 2px;
+  transform: translateX(-50%);
+}
+
+.target-skill {
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 25px;
+  text-shadow: 0 0 4px currentColor;
+}
+
+.game-results {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.results-header h4 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 15px currentColor;
+}
+
+.mission-success p, .mission-failed p {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.resume-unlock-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--valorant-green), var(--valorant-cyan));
+  border: 3px solid var(--valorant-green);
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Valorant', 'Inter', sans-serif;
+}
+
+.resume-unlock-btn:hover {  
+  border-color: var(--valorant-yellow);
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+}
+
+/* Animations */
+@keyframes rotate-glow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes unlock-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes scan-horizontal {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+@keyframes target-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes target-hit {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1.1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .valorant-nav-horizontal {
+    width: 98%;
+    height: 55px;
+    padding: 0 20px;
+  }
+  
+  .nav-items-container {
+    max-width: 100%;
+  }
+  
+  .nav-section {
+    gap: 15px;
+  }
+  
+  .nav-item-horizontal {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .hire-me-btn {
+    width: 120px;
+    height: 38px;
+    font-size: 12px;
+    clip-path: polygon(3px 0%, calc(100% - 3px) 0%, 100% 3px, 100% calc(100% - 3px), calc(100% - 3px) 100%, 3px 100%, 0% calc(100% - 3px), 0% 3px);
+  }
+  
+  .hire-btn-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .skill-target-game {
+    width: 95%;
+    height: 85%;
+    padding: 15px;
+  }
+  
+  .targets-container {
+    height: 300px;
+  }
+  
+  .skill-target {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .valorant-nav-horizontal {
+    height: 50px;
+    padding: 0 15px;
+  }
+  
+  .nav-section {
+    gap: 10px;
+  }
+  
+  .nav-item-horizontal {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .hire-me-btn {
+    width: 100px;
+    height: 35px;
+    font-size: 11px;
+    clip-path: polygon(2px 0%, calc(100% - 2px) 0%, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) 100%, 2px 100%, 0% calc(100% - 2px), 0% 2px);
+  }
+}
+
+/* Original Navigation (keeping for fallback) */
 .valorant-navigation {
   position: fixed;
   top: 0;

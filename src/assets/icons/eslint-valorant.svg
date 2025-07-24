@@ -1,0 +1,55 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="eslintGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4654;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF4654;stop-opacity:0.7" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Tactical frame -->
+  <rect x="2" y="2" width="76" height="76" fill="none" stroke="#FF4654" stroke-width="2" opacity="0.3"/>
+  <rect x="8" y="8" width="64" height="64" fill="none" stroke="url(#eslintGrad)" stroke-width="1"/>
+  
+  <!-- Corner brackets -->
+  <path d="M8,8 L15,8 M8,8 L8,15 M65,8 L72,8 M72,8 L72,15 M8,65 L8,72 M8,72 L15,72 M72,65 L72,72 M65,72 L72,72" 
+        stroke="#FF4654" stroke-width="2" fill="none"/>
+  
+  <!-- ESLint pentagon -->
+  <g transform="translate(40,40)" filter="url(#glow)">
+    <path d="M0,-18 L17,-5 L10,15 L-10,15 L-17,-5 Z" 
+          fill="none" stroke="#FF4654" stroke-width="2"/>
+    <path d="M0,-18 L17,-5 L10,15 L-10,15 L-17,-5 Z" 
+          fill="url(#eslintGrad)" opacity="0.2"/>
+    
+    <!-- Inner circuit pattern -->
+    <path d="M0,-10 L8,-3 L5,8 L-5,8 L-8,-3 Z" 
+          fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Central core -->
+    <circle cx="0" cy="0" r="3" fill="#FF4654"/>
+    
+    <!-- Scan lines -->
+    <line x1="-15" y1="-8" x2="15" y2="-8" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="-8" y1="5" x2="8" y2="5" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Connection points -->
+    <circle cx="0" cy="-18" r="1.5" fill="#FF4654"/>
+    <circle cx="17" cy="-5" r="1.5" fill="#FF4654"/>
+    <circle cx="10" cy="15" r="1.5" fill="#FF4654"/>
+    <circle cx="-10" cy="15" r="1.5" fill="#FF4654"/>
+    <circle cx="-17" cy="-5" r="1.5" fill="#FF4654"/>
+  </g>
+  
+  <!-- Tactical targeting system -->
+  <circle cx="25" cy="25" r="3" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.3"/>
+  <circle cx="55" cy="55" r="3" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.3"/>
+  <line x1="22" y1="25" x2="28" y2="25" stroke="#FF4654" stroke-width="1" opacity="0.3"/>
+  <line x1="25" y1="22" x2="25" y2="28" stroke="#FF4654" stroke-width="1" opacity="0.3"/>
+</svg>

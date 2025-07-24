@@ -1,0 +1,71 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="systemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4654;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFCC00;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- System Design blueprint -->
+  <g transform="translate(30,30)" filter="url(#glow)">
+    <!-- Main system architecture -->
+    <g fill="none" stroke="url(#systemGrad)" stroke-width="2">
+      <!-- Central hub -->
+      <circle cx="0" cy="0" r="6"/>
+      
+      <!-- System nodes -->
+      <rect x="-18" y="-18" width="8" height="8" rx="1"/>
+      <rect x="10" y="-18" width="8" height="8" rx="1"/>
+      <rect x="-18" y="10" width="8" height="8" rx="1"/>
+      <rect x="10" y="10" width="8" height="8" rx="1"/>
+      
+      <!-- Connection lines -->
+      <path d="M-10,-14 L-6,-6 M6,-6 L10,-14 M-6,6 L-10,14 M6,6 L10,14"/>
+    </g>
+    
+    <!-- Data flow indicators -->
+    <g fill="#FFCC00" opacity="0.8">
+      <polygon points="-8,-10 -6,-12 -4,-10"/>
+      <polygon points="8,-10 6,-12 4,-10"/>
+      <polygon points="-8,10 -6,12 -4,10"/>
+      <polygon points="8,10 6,12 4,10"/>
+    </g>
+    
+    <!-- Blueprint grid -->
+    <g stroke="#FFCC00" stroke-width="0.5" opacity="0.3">
+      <path d="M-20,-20 L20,-20 M-20,-10 L20,-10 M-20,0 L20,0 M-20,10 L20,10 M-20,20 L20,20"/>
+      <path d="M-20,-20 L-20,20 M-10,-20 L-10,20 M0,-20 L0,20 M10,-20 L10,20 M20,-20 L20,20"/>
+    </g>
+    
+    <!-- Energy particles -->
+    <circle cx="-18" cy="-15" r="2" fill="#FFCC00" opacity="0.8"/>
+    <circle cx="18" cy="15" r="2" fill="#FFCC00" opacity="0.8"/>
+    <circle cx="-15" cy="18" r="1.5" fill="#FF4654" opacity="0.6"/>
+    <circle cx="15" cy="-18" r="1.5" fill="#FF4654" opacity="0.6"/>
+    
+    <!-- Tactical frame -->
+    <rect x="-25" y="-25" width="50" height="50" fill="none" stroke="#FF4654" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Corner brackets -->
+    <path d="M-25,-25 L-20,-25 M-25,-25 L-25,-20 M20,-25 L25,-25 M25,-25 L25,-20 M-25,20 L-25,25 M-25,25 L-20,25 M25,20 L25,25 M20,25 L25,25" 
+          stroke="#FFCC00" stroke-width="2" fill="none"/>
+    
+    <!-- Power indicators -->
+    <circle cx="-22" cy="-22" r="1.5" fill="#FFCC00"/>
+    <circle cx="22" cy="-22" r="1.5" fill="#FFCC00"/>
+    <circle cx="22" cy="22" r="1.5" fill="#FFCC00"/>
+    <circle cx="-22" cy="22" r="1.5" fill="#FFCC00"/>
+    
+    <!-- Central core -->
+    <circle cx="0" cy="0" r="3" fill="url(#systemGrad)" opacity="0.8"/>
+    <text x="0" y="2" text-anchor="middle" font-family="monospace" font-size="3" 
+          fill="#0D1117" font-weight="bold">SYS</text>
+  </g>
+</svg>

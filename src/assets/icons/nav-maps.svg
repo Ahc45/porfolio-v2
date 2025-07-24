@@ -1,0 +1,54 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Monochromatic tactical map -->
+  <g filter="url(#glow)">
+    <!-- Map base outline -->
+    <path d="M2 3L8 2L16 4L22 2V19L16 21L8 19L2 21V3Z" 
+          fill="none" stroke="#FF4654" stroke-width="2"/>
+    <path d="M2 3L8 2L16 4L22 2V19L16 21L8 19L2 21V3Z" 
+          fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Map fold lines -->
+    <line x1="8" y1="2" x2="8" y2="19" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    <line x1="16" y1="4" x2="16" y2="21" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Tactical waypoints -->
+    <circle cx="5" cy="8" r="2" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <circle cx="5" cy="8" r="1" fill="#FF4654"/>
+    
+    <circle cx="12" cy="10" r="2" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <circle cx="12" cy="10" r="1" fill="#FF4654"/>
+    
+    <circle cx="19" cy="7" r="2" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <circle cx="19" cy="7" r="1" fill="#FF4654"/>
+    
+    <!-- Connection routes -->
+    <path d="M5 8L12 10L19 7" stroke="#FF4654" strokeWidth="1.5" opacity="0.6"/>
+    
+    <!-- Tactical grid overlay -->
+    <line x1="3" y1="6" x2="21" y2="6" stroke="#FF4654" stroke-width="0.5" opacity="0.3"/>
+    <line x1="3" y1="12" x2="21" y2="12" stroke="#FF4654" stroke-width="0.5" opacity="0.3"/>
+    <line x1="3" y1="18" x2="21" y2="18" stroke="#FF4654" stroke-width="0.5" opacity="0.3"/>
+    
+    <!-- Corner brackets -->
+    <path d="M2,3 L4,3 M2,3 L2,5 M20,3 L22,3 M22,3 L22,5 M2,19 L2,21 M2,21 L4,21 M22,19 L22,21 M20,21 L22,21" 
+          stroke="#FF4654" stroke-width="1.5" fill="none"/>
+    
+    <!-- Scan line -->
+    <line x1="2" y1="12" x2="22" y2="12" stroke="#FF4654" stroke-width="1" opacity="0.2"/>
+    
+    <!-- Targeting reticles -->
+    <circle cx="5" cy="8" r="4" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.2"/>
+    <circle cx="12" cy="10" r="4" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.2"/>
+    <circle cx="19" cy="7" r="4" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.2"/>
+  </g>
+</svg>

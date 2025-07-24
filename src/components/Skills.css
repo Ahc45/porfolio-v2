@@ -7,7 +7,7 @@
 
 /* Valorant corner brackets */
 .skills::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 30px;
   right: 30px;
@@ -22,7 +22,7 @@
 }
 
 .skills::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 30px;
   left: 30px;
@@ -37,8 +37,13 @@
 }
 
 @keyframes bracketGlow {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .skills-background {
@@ -55,7 +60,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-15deg);
-  font-family: 'Valorant', 'Inter', sans-serif;
+  font-family: "Valorant", "Inter", sans-serif;
   font-size: 18vw;
   font-weight: 900;
   color: rgba(0, 255, 136, 0.04);
@@ -68,15 +73,15 @@
 }
 
 @keyframes skillsTextRotate {
-  0% { 
+  0% {
     transform: translate(-50%, -50%) rotate(-15deg);
     opacity: 0.04;
   }
-  50% { 
+  50% {
     transform: translate(-50%, -50%) rotate(-13deg);
     opacity: 0.06;
   }
-  100% { 
+  100% {
     transform: translate(-50%, -50%) rotate(-15deg);
     opacity: 0.04;
   }
@@ -96,7 +101,7 @@
 }
 
 .section-title {
-  font-family: 'Valorant', 'Inter', sans-serif;
+  font-family: "Valorant", "Inter", sans-serif;
   font-size: 3rem;
   font-weight: 900;
   color: var(--text-primary);
@@ -106,7 +111,7 @@
 }
 
 .section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -212,7 +217,7 @@
 }
 
 .ability-name {
-  font-family: 'Valorant', 'Inter', sans-serif;
+  font-family: "Valorant", "Inter", sans-serif;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -235,7 +240,6 @@
 }
 
 .ability-type-badge {
-  background: var(--valorant-accent);
   color: var(--text-primary);
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
@@ -326,7 +330,7 @@
 }
 
 .timeline-items::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 15px;
   top: 0;
@@ -349,8 +353,35 @@
   border: 3px solid var(--valorant-dark);
   border-radius: 50%;
   flex-shrink: 0;
-  margin-left: -8px;
+  margin-left: -24px;
   z-index: 2;
+}
+
+.timeline-marker.first-marker {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 70, 84, 0.7);
+  }
+  20% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 8px rgba(255, 70, 84, 0.3);
+  }
+  40% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(255, 70, 84, 0.1);
+  }
+  60% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 16px rgba(255, 70, 84, 0.05);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 70, 84, 0);
+  }
 }
 
 .timeline-content {
@@ -474,29 +505,37 @@
   height: 12px;
 }
 
-.level-bar:nth-child(2).active { height: 14px; }
-.level-bar:nth-child(3).active { height: 16px; }
-.level-bar:nth-child(4).active { height: 18px; }
-.level-bar:nth-child(5).active { height: 20px; }
+.level-bar:nth-child(2).active {
+  height: 14px;
+}
+.level-bar:nth-child(3).active {
+  height: 16px;
+}
+.level-bar:nth-child(4).active {
+  height: 18px;
+}
+.level-bar:nth-child(5).active {
+  height: 20px;
+}
 
 @media (max-width: 1024px) {
   .abilities-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .ability-selector {
     flex-direction: row;
     overflow-x: auto;
     padding-bottom: 1rem;
   }
-  
+
   .ability-card {
     flex-direction: column;
     text-align: center;
     min-width: 200px;
   }
-  
+
   .tech-arsenal-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
@@ -506,15 +545,15 @@
   .section-title {
     font-size: 2.5rem;
   }
-  
+
   .ability-card {
     min-width: 150px;
   }
-  
+
   .ability-preview {
     padding: 1.5rem;
   }
-  
+
   .preview-header {
     flex-direction: column;
     gap: 1rem;

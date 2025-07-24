@@ -2,7 +2,11 @@
   min-height: 100vh;
   padding: 8rem 0 6rem 0;
   position: relative;
-  background: linear-gradient(135deg, var(--valorant-darker) 0%, var(--valorant-blue) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--valorant-darker) 0%,
+    var(--valorant-blue) 100%
+  );
   border-top: 3px solid var(--valorant-red);
 }
 
@@ -18,10 +22,10 @@
 .projects-background-text {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 7%;
   transform: translate(-50%, -50%) rotate(90deg);
-  font-family: 'Valorant', 'Inter', sans-serif;
-  font-size: 16vw;
+  font-family: "Valorant", "Inter", sans-serif;
+  font-size: 8vw;
   font-weight: 900;
   color: rgba(0, 212, 255, 0.03);
   pointer-events: none;
@@ -39,6 +43,312 @@
   position: relative;
 }
 
+/* New Project Showcase Styles */
+.project-showcase {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.project-main-card {
+  background: linear-gradient(
+    135deg,
+    rgba(13, 17, 23, 0.95),
+    rgba(15, 20, 25, 0.95)
+  );
+  border: 1px solid rgba(255, 70, 84, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.project-image-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 300px;
+}
+
+.project-status-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--valorant-green);
+  color: var(--valorant-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.project-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-header {
+  border-bottom: 1px solid rgba(255, 70, 84, 0.3);
+  padding-bottom: 1rem;
+}
+
+.project-title {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  font-family: "Valorant", "Inter", sans-serif;
+}
+
+.project-type {
+  color: var(--valorant-red);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.project-problem-solution {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.problem-section h4,
+.solution-section h4 {
+  color: var(--valorant-red);
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+  font-family: "Valorant", "Inter", sans-serif;
+}
+
+.problem-section p,
+.solution-section p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.project-tech-stack h4 {
+  color: var(--valorant-red);
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+  font-family: "Valorant", "Inter", sans-serif;
+}
+
+.tech-item-detailed {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 70, 84, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 70, 84, 0.2);
+}
+
+.tech-item-detailed img {
+  width: 20px;
+  height: 20px;
+}
+
+.tech-item-detailed span {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  border: 1px solid;
+}
+
+.demo-btn {
+  background: var(--valorant-red);
+  color: white;
+  border-color: var(--valorant-red);
+}
+
+.github-btn {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.demo-btn:hover {
+  background: var(--valorant-accent);
+  transform: translateY(-2px);
+}
+
+.github-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.project-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.design-thinking-card,
+.results-card {
+  background: linear-gradient(
+    135deg,
+    rgba(13, 17, 23, 0.95),
+    rgba(15, 20, 25, 0.95)
+  );
+  border: 1px solid rgba(255, 70, 84, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.design-thinking-card h4,
+.results-card h4 {
+  color: var(--valorant-red);
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  font-family: "Valorant", "Inter", sans-serif;
+}
+
+.thinking-step {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  background: var(--valorant-red);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-text {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.result-check {
+  font-size: 1rem;
+}
+
+.result-text {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.project-metrics {
+  margin-top: 2rem;
+}
+
+.metrics-header h4 {
+  color: var(--valorant-red);
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  font-family: "Valorant", "Inter", sans-serif;
+  text-align: center;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.metric-card {
+  background: linear-gradient(
+    135deg,
+    rgba(13, 17, 23, 0.95),
+    rgba(15, 20, 25, 0.95)
+  );
+  border: 1px solid rgba(255, 70, 84, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.metric-icon {
+  font-size: 1.5rem;
+}
+
+.metric-value {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .project-showcase {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-main-card {
+    grid-template-columns: 1fr;
+  }
+
+  .project-main-image {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-details {
+    padding: 1.5rem;
+  }
+
+  .project-actions {
+    flex-direction: column;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card {
+    justify-content: center;
+  }
+}
+
 /* Patch Header Section */
 .section-header {
   margin-bottom: 4rem;
@@ -49,7 +359,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem 3rem;
-  background: linear-gradient(135deg, rgba(15, 20, 25, 0.9) 0%, rgba(13, 17, 23, 0.9) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 20, 25, 0.9) 0%,
+    rgba(13, 17, 23, 0.9) 100%
+  );
   border: 2px solid var(--valorant-red);
   border-bottom: 4px solid var(--valorant-red);
   position: relative;
@@ -57,21 +371,24 @@
 }
 
 .patch-header::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(90deg, transparent 98%, rgba(255, 70, 84, 0.1) 100%),
+  background: linear-gradient(
+      90deg,
+      transparent 98%,
+      rgba(255, 70, 84, 0.1) 100%
+    ),
     linear-gradient(0deg, transparent 98%, rgba(0, 212, 255, 0.05) 100%);
   background-size: 50px 50px, 75px 75px;
   opacity: 0.3;
 }
 
 .valorant-logo {
-  font-family: 'Valorant', 'Inter', sans-serif;
+  font-family: "Valorant", "Inter", sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--valorant-red);
@@ -81,7 +398,7 @@
 }
 
 .patch-title {
-  font-family: 'Valorant', 'Inter', sans-serif;
+  font-family: "Valorant", "Inter", sans-serif;
   font-size: 3rem;
   font-weight: 900;
   color: var(--text-primary);
@@ -110,7 +427,6 @@
   grid-template-columns: 300px 1fr;
   grid-template-rows: auto 1fr;
   gap: 2rem;
-  height: 80vh;
 }
 
 /* Agents Section (Left Sidebar) */
@@ -120,6 +436,7 @@
   border: 2px solid var(--valorant-red);
   border-left: 6px solid var(--valorant-red);
   padding: 1.5rem;
+  max-height: fit-content;
 }
 
 .agents-header {
@@ -127,7 +444,7 @@
 }
 
 .updates-label {
-  font-family: 'Valorant', 'Inter', sans-serif;
+  font-family: "Valorant", "Inter", sans-serif;
   background: var(--valorant-red);
   color: var(--text-primary);
   padding: 0.5rem 1rem;
@@ -166,7 +483,7 @@
 }
 
 .agent-card.selected::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -186,7 +503,11 @@
   justify-content: center;
   align-items: center;
   height: 80px;
-  background: linear-gradient(135deg, var(--valorant-dark), var(--valorant-blue));
+  background: linear-gradient(
+    135deg,
+    var(--valorant-dark),
+    var(--valorant-blue)
+  );
   border: 1px solid var(--border-primary);
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -223,13 +544,6 @@
   text-align: center;
 }
 
-/* Features Section (Main Content) */
-.features-section {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-}
-
 .feature-card {
   background: rgba(15, 20, 25, 0.9);
   border: 2px solid var(--border-primary);
@@ -250,6 +564,108 @@
 
 .main-feature {
   border-left: 6px solid var(--valorant-red);
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Image Slider Styles */
+.image-slider {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.slider-image-container {
+  position: relative;
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 70, 84, 0.15) 0%,
+    rgba(0, 255, 136, 0.1) 50%,
+    rgba(255, 204, 0, 0.15) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.slider-btn {
+  background: var(--valorant-accent);
+  color: var(--text-primary);
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  position: relative;
+  z-index: 2;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background: var(--valorant-red);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 70, 84, 0.3);
+}
+
+.slider-btn:active {
+  transform: translateY(0);
+}
+
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--valorant-red);
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 70, 84, 0.5);
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .secondary-feature {
@@ -267,7 +683,7 @@
 }
 
 .feature-title {
-  font-family: 'Valorant', 'Inter', sans-serif;
+  font-family: "Valorant", "Inter", sans-serif;
   font-size: 2rem;
   font-weight: 900;
   color: var(--text-primary);
@@ -383,10 +799,66 @@
   font-size: 0.9rem;
 }
 
+/* Responsive styles for image slider */
+@media (max-width: 768px) {
+  .slider-container {
+    gap: 0.5rem;
+  }
+
+  .slider-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 1.2rem;
+    min-width: 40px;
+  }
+
+  .slider-image-container {
+    aspect-ratio: 4/3;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-feature {
+    padding: 1rem;
+  }
+
+  .image-slider {
+    margin-bottom: 1rem;
+  }
+
+  .slider-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .slider-image-container {
+    width: 100%;
+    aspect-ratio: 16/10;
+  }
+
+  .slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
 /* Animations */
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.7; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
 }
 
 /* Mobile Responsiveness */
@@ -396,19 +868,19 @@
     grid-template-rows: auto auto auto;
     height: auto;
   }
-  
+
   .agents-section {
     grid-row: 1;
   }
-  
+
   .agents-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  
+
   .features-section {
     grid-template-columns: 1fr;
   }
-  
+
   .bottom-section {
     grid-column: 1;
   }
@@ -418,45 +890,45 @@
   .projects {
     padding: 6rem 0 4rem 0;
   }
-  
+
   .patch-header {
     flex-direction: column;
     gap: 1rem;
     padding: 1.5rem;
     text-align: center;
   }
-  
+
   .patch-title {
     font-size: 2rem;
   }
-  
+
   .agents-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .agent-image {
-    height: 60px;
+    height: 40px;
     font-size: 2rem;
   }
-  
+
   .feature-card {
     flex-direction: column;
     text-align: center;
     padding: 1.5rem;
   }
-  
+
   .feature-icon-large {
     font-size: 3rem;
   }
-  
+
   .feature-title {
     font-size: 1.5rem;
   }
-  
+
   .tech-showcase {
     justify-content: center;
   }
-  
+
   .bottom-section {
     grid-template-columns: 1fr;
   }
@@ -466,24 +938,24 @@
   .projects-container {
     padding: 0 1rem;
   }
-  
+
   .patch-header {
     padding: 1rem;
   }
-  
+
   .patch-title {
     font-size: 1.5rem;
     letter-spacing: 1px;
   }
-  
+
   .agents-section {
     padding: 1rem;
   }
-  
+
   .feature-card {
     padding: 1rem;
   }
-  
+
   .feature-title {
     font-size: 1.25rem;
   }

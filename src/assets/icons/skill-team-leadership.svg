@@ -1,0 +1,63 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="teamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4654;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFCC00;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Team Leadership design -->
+  <g transform="translate(30,30)" filter="url(#glow)">
+    <!-- Main team formation (3 connected figures) -->
+    <g fill="url(#teamGrad)" stroke="#FF4654" stroke-width="1.5">
+      <!-- Leader (center, larger) -->
+      <circle cx="0" cy="-5" r="4"/>
+      <rect x="-3" y="-1" width="6" height="8" rx="1"/>
+      
+      <!-- Team member 1 (left) -->
+      <circle cx="-12" cy="2" r="3"/>
+      <rect x="-14" y="5" width="4" height="6" rx="1"/>
+      
+      <!-- Team member 2 (right) -->
+      <circle cx="12" cy="2" r="3"/>
+      <rect x="10" y="5" width="4" height="6" rx="1"/>
+    </g>
+    
+    <!-- Connection lines -->
+    <path d="M-8,5 L-4,2 M8,5 L4,2" stroke="#FFCC00" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Communication waves -->
+    <circle cx="0" cy="-5" r="8" fill="none" stroke="#FFCC00" stroke-width="1" opacity="0.4"/>
+    <circle cx="0" cy="-5" r="12" fill="none" stroke="#FFCC00" stroke-width="1" opacity="0.2"/>
+    
+    <!-- Energy particles -->
+    <circle cx="-18" cy="-10" r="1.5" fill="#FFCC00" opacity="0.8"/>
+    <circle cx="18" cy="-10" r="1.5" fill="#FFCC00" opacity="0.8"/>
+    <circle cx="0" cy="18" r="1.5" fill="#FF4654" opacity="0.6"/>
+    
+    <!-- Tactical frame -->
+    <rect x="-25" y="-25" width="50" height="50" fill="none" stroke="#FF4654" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Corner brackets -->
+    <path d="M-25,-25 L-20,-25 M-25,-25 L-25,-20 M20,-25 L25,-25 M25,-25 L25,-20 M-25,20 L-25,25 M-25,25 L-20,25 M25,20 L25,25 M20,25 L25,25" 
+          stroke="#FFCC00" stroke-width="2" fill="none"/>
+    
+    <!-- Power indicators -->
+    <circle cx="-22" cy="-22" r="1.5" fill="#FFCC00"/>
+    <circle cx="22" cy="-22" r="1.5" fill="#FFCC00"/>
+    <circle cx="22" cy="22" r="1.5" fill="#FFCC00"/>
+    <circle cx="-22" cy="22" r="1.5" fill="#FFCC00"/>
+    
+    <!-- Central core -->
+    <circle cx="0" cy="12" r="3" fill="#FFCC00" opacity="0.8"/>
+    <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="3" 
+          fill="#0D1117" font-weight="bold">TL</text>
+  </g>
+</svg>

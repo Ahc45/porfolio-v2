@@ -1,0 +1,40 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- PHP oval design -->
+  <g transform="translate(20,20)" filter="url(#glow)">
+    <ellipse cx="0" cy="0" rx="16" ry="8" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <ellipse cx="0" cy="0" rx="16" ry="8" fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Inner oval -->
+    <ellipse cx="0" cy="0" rx="10" ry="5" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- PHP text -->
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="6" 
+          fill="#FF4654" font-weight="bold">PHP</text>
+    
+    <!-- Side elements -->
+    <circle cx="-12" cy="0" r="2" fill="#FF4654" opacity="0.8"/>
+    <circle cx="12" cy="0" r="2" fill="#FF4654" opacity="0.8"/>
+    
+    <!-- Connection lines -->
+    <line x1="-16" y1="0" x2="-14" y2="0" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    <line x1="14" y1="0" x2="16" y2="0" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Top and bottom accents -->
+    <line x1="-8" y1="-6" x2="8" y2="-6" stroke="#FF4654" stroke-width="1" opacity="0.3"/>
+    <line x1="-8" y1="6" x2="8" y2="6" stroke="#FF4654" stroke-width="1" opacity="0.3"/>
+    
+    <!-- Corner brackets -->
+    <path d="M-14,-6 L-16,-6 L-16,-8 M14,-6 L16,-6 L16,-8 M-16,6 L-16,8 L-14,8 M16,6 L16,8 L14,8" 
+          stroke="#FF4654" stroke-width="1" fill="none" opacity="0.4"/>
+  </g>
+</svg>

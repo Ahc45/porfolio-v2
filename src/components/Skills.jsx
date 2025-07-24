@@ -1,119 +1,163 @@
-import React, { useState } from 'react'
-import './Skills.css'
+import React, { useState } from "react";
+import "./Skills.css";
+
+// Import custom tech stack icons
+import ReactIcon from "../assets/icons/tech-react.svg";
+import VueIcon from "../assets/icons/tech-vue.svg";
+import JavaScriptIcon from "../assets/icons/tech-javascript.svg";
+import HTML5Icon from "../assets/icons/tech-html5.svg";
+import TailwindIcon from "../assets/icons/tech-tailwind.svg";
+import SassIcon from "../assets/icons/tech-sass.svg";
+import LaravelIcon from "../assets/icons/tech-laravel.svg";
+import PHPIcon from "../assets/icons/tech-php.svg";
+import NodeJSIcon from "../assets/icons/tech-nodejs.svg";
+import PythonIcon from "../assets/icons/tech-python.svg";
+import MySQLIcon from "../assets/icons/tech-mysql.svg";
+import PostgreSQLIcon from "../assets/icons/tech-postgresql.svg";
+import AWSIcon from "../assets/icons/tech-aws.svg";
+import DockerIcon from "../assets/icons/tech-docker.svg";
+import LinuxIcon from "../assets/icons/tech-linux.svg";
+import GitHubIcon from "../assets/icons/tech-github.svg";
+import NginxIcon from "../assets/icons/tech-nginx.svg";
+
+// Import custom ability icons
+import FrontendIcon from "../assets/icons/ability-frontend.svg";
+import BackendIcon from "../assets/icons/ability-backend.svg";
+import DevOpsIcon from "../assets/icons/ability-devops.svg";
+import ArchitectIcon from "../assets/icons/ability-architect.svg";
+
+// Import custom skill icons for architect section
+import TeamLeadershipIcon from "../assets/icons/skill-team-leadership.svg";
+import SystemDesignIcon from "../assets/icons/skill-system-design.svg";
+import ApiDesignIcon from "../assets/icons/skill-api-design.svg";
+import DatabaseDesignIcon from "../assets/icons/skill-database-design.svg";
+import PerformanceIcon from "../assets/icons/skill-performance.svg";
+import MentoringIcon from "../assets/icons/skill-mentoring.svg";
 
 const Skills = () => {
-  const [selectedAbility, setSelectedAbility] = useState(0)
+  const [selectedAbility, setSelectedAbility] = useState(0);
 
   // Sound effects
   const playClickSound = () => {
-    const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmkfBCOEx+/zix4FEo3b+N2QPwgWZr/0xmkfCiWS4fO8aDMGHm+668OAMwgTdcy/6HhHDh1is+OqYisJIJnZ8cZ2KAQoiNLzz3IpBSqO2/DMdysEK4fQ8tJ5KAQ')
-    audio.volume = 0.3
-    audio.play().catch(() => {})
-  }
+    const audio = new Audio(
+      "data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmkfBCOEx+/zix4FEo3b+N2QPwgWZr/0xmkfCiWS4fO8aDMGHm+668OAMwgTdcy/6HhHDh1is+OqYisJIJnZ8cZ2KAQoiNLzz3IpBSqO2/DMdysEK4fQ8tJ5KAQ"
+    );
+    audio.volume = 0.3;
+    audio.play().catch(() => {});
+  };
 
   const playHoverSound = () => {
-    const audio = new Audio('data:audio/wav;base64,UklGRvIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YU4AAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmkfBSi')
-    audio.volume = 0.1
-    audio.play().catch(() => {})
-  }
+    const audio = new Audio(
+      "data:audio/wav;base64,UklGRvIAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YU4AAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmkfBSi"
+    );
+    audio.volume = 0.1;
+    audio.play().catch(() => {});
+  };
 
   const abilities = [
     {
-      id: 'F',
-      name: 'FRONTEND ARSENAL',
-      type: 'Core',
-      description: 'Build lightning-fast, responsive interfaces that increase user engagement by 45%. 6+ years mastering modern frameworks.',
-      icon: '⚡',
-      color: '--tech-blue',
+      id: "F",
+      name: "FRONTEND ARSENAL",
+      type: "Core",
+      description:
+        "Build lightning-fast, responsive interfaces that increase user engagement by 45%. 6+ years mastering modern frameworks.",
+      icon: <img src={FrontendIcon} alt="Frontend" width="40" height="40" />,
+      color: "--tech-blue",
       skills: [
-        { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', years: 6 },
-        { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg', years: 4 },
-        { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', years: 6 },
-        { name: 'HTML/CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', years: 6 },
-        { name: 'Tailwind', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg', years: 3 },
-        { name: 'SASS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg', years: 5 }
-      ]
+        { name: "React", icon: ReactIcon, years: 6 },
+        { name: "Vue.js", icon: VueIcon, years: 4 },
+        { name: "JavaScript", icon: JavaScriptIcon, years: 6 },
+        { name: "HTML/CSS", icon: HTML5Icon, years: 6 },
+        { name: "Tailwind", icon: TailwindIcon, years: 3 },
+        { name: "SASS", icon: SassIcon, years: 5 },
+      ],
     },
     {
-      id: 'B',
-      name: 'BACKEND FORTRESS',
-      type: 'Expert',
-      description: 'Architect scalable backend systems handling millions of requests. Master of Laravel, PHP, and database optimization.',
-      icon: '🛡️',
-      color: '--tech-red',
+      id: "B",
+      name: "BACKEND FORTRESS",
+      type: "Expert",
+      description:
+        "Architect scalable backend systems handling millions of requests. Master of Laravel, PHP, and database optimization.",
+      icon: <img src={BackendIcon} alt="Backend" width="40" height="40" />,
+      color: "--tech-red",
       skills: [
-        { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg', years: 4 },
-        { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', years: 5 },
-        { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', years: 4 },
-        { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', years: 3 },
-        { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', years: 5 },
-        { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', years: 3 }
-      ]
+        { name: "Laravel", icon: LaravelIcon, years: 4 },
+        { name: "PHP", icon: PHPIcon, years: 5 },
+        { name: "Node.js", icon: NodeJSIcon, years: 4 },
+        { name: "Python", icon: PythonIcon, years: 3 },
+        { name: "MySQL", icon: MySQLIcon, years: 5 },
+        { name: "PostgreSQL", icon: PostgreSQLIcon, years: 3 },
+      ],
     },
     {
-      id: 'D',
-      name: 'DEVOPS OPERATIONS',
-      type: 'Advanced',
-      description: 'Deploy and scale applications with 99.9% uptime using Docker, AWS services, and automated CI/CD pipelines.',
-      icon: '🎯',
-      color: '--tech-orange',
+      id: "D",
+      name: "DEVOPS OPERATIONS",
+      type: "Advanced",
+      description:
+        "Deploy and scale applications with 99.9% uptime using Docker, AWS services, and automated CI/CD pipelines.",
+      icon: <img src={DevOpsIcon} alt="DevOps" width="40" height="40" />,
+      color: "--tech-orange",
       skills: [
-        { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg', years: 4 },
-        { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', years: 3 },
-        { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg', years: 5 },
-        { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', years: 6 },
-        { name: 'Nginx', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg', years: 4 }
-      ]
+        { name: "AWS", icon: AWSIcon, years: 4 },
+        { name: "Docker", icon: DockerIcon, years: 3 },
+        { name: "Linux", icon: LinuxIcon, years: 5 },
+        { name: "GitHub", icon: GitHubIcon, years: 6 },
+        { name: "Nginx", icon: NginxIcon, years: 4 },
+      ],
     },
     {
-      id: 'A',
-      name: 'ARCHITECT MINDSET',
-      type: 'Leadership',
-      description: 'Deliver end-to-end solutions that exceed expectations. Lead teams, design systems, and drive business growth.',
-      icon: '👑',
-      color: '--tech-gold',
+      id: "A",
+      name: "ARCHITECT MINDSET",
+      type: "Leadership",
+      description:
+        "Deliver end-to-end solutions that exceed expectations. Lead teams, design systems, and drive business growth.",
+      icon: <img src={ArchitectIcon} alt="Architect" width="40" height="40" />,
+      color: "--tech-gold",
       skills: [
-        { name: 'Team Leadership', icon: '👥', years: 3 },
-        { name: 'System Design', icon: '🏗️', years: 4 },
-        { name: 'API Design', icon: '🔌', years: 5 },
-        { name: 'Database Design', icon: '🗄️', years: 5 },
-        { name: 'Performance', icon: '⚡', years: 4 },
-        { name: 'Mentoring', icon: '🎓', years: 2 }
-      ]
-    }
-  ]
+        { name: "Team Leadership", icon: TeamLeadershipIcon, years: 3 },
+        { name: "System Design", icon: SystemDesignIcon, years: 4 },
+        { name: "API Design", icon: ApiDesignIcon, years: 5 },
+        { name: "Database Design", icon: DatabaseDesignIcon, years: 5 },
+        { name: "Performance", icon: PerformanceIcon, years: 4 },
+        { name: "Mentoring", icon: MentoringIcon, years: 2 },
+      ],
+    },
+  ];
 
   return (
     <section className="skills">
       <div className="skills-background tactical-grid"></div>
       <div className="skills-background-text">ARSENAL</div>
-      
+
       <div className="skills-container">
         <div className="section-header">
           <h2 className="section-title">TECH ARSENAL</h2>
-          <p className="section-subtitle">Choose your weapon of choice</p>
+          <p className="section-subtitle">My weapon of choice</p>
         </div>
 
         <div className="abilities-grid">
           <div className="ability-selector">
             {abilities.map((ability, index) => (
-              <div 
+              <div
                 key={ability.id}
-                className={`ability-card ${selectedAbility === index ? 'active' : ''} glitch-hover glow-on-hover`}
+                className={`ability-card ${
+                  selectedAbility === index ? "active" : ""
+                } glitch-hover glow-on-hover`}
                 onClick={() => {
-                  playClickSound()
-                  setSelectedAbility(index)
+                  playClickSound();
+                  setSelectedAbility(index);
                 }}
                 onMouseEnter={playHoverSound}
               >
-                <div className="ability-key geometric-clip">
-                  {ability.id}
-                </div>
+                <div className="ability-key geometric-clip">{ability.id}</div>
                 <div className="ability-info">
                   <h3>{ability.name}</h3>
                   <span className="ability-type">{ability.type}</span>
                 </div>
-                <div className="ability-icon" style={{ color: `var(${ability.color})` }}>
+                <div
+                  className="ability-icon"
+                  style={{ color: `var(${ability.color})` }}
+                >
                   {ability.icon}
                 </div>
               </div>
@@ -124,7 +168,12 @@ const Skills = () => {
             <div className="ability-preview corner-clip">
               <div className="preview-header">
                 <div className="ability-name">
-                  <span className="key-indicator" style={{ background: `var(${abilities[selectedAbility].color})` }}>
+                  <span
+                    className="key-indicator"
+                    style={{
+                      background: `var(${abilities[selectedAbility].color})`,
+                    }}
+                  >
                     {abilities[selectedAbility].id}
                   </span>
                   {abilities[selectedAbility].name}
@@ -133,20 +182,20 @@ const Skills = () => {
                   {abilities[selectedAbility].type}
                 </span>
               </div>
-              
+
               <div className="ability-description">
                 <p>{abilities[selectedAbility].description}</p>
               </div>
 
               <div className="tech-arsenal-grid">
                 {abilities[selectedAbility].skills.map((skill, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="tech-item geometric-clip glow-on-hover glitch-hover"
                     onMouseEnter={playHoverSound}
-                    style={{ 
+                    style={{
                       borderColor: `var(${abilities[selectedAbility].color})`,
-                      '--glow-color': `var(${abilities[selectedAbility].color})`
+                      "--glow-color": `var(${abilities[selectedAbility].color})`,
                     }}
                   >
                     <div className="tech-icon">
@@ -159,10 +208,17 @@ const Skills = () => {
                     <div className="tech-level">
                       <div className="level-bars">
                         {[...Array(5)].map((_, i) => (
-                          <div 
-                            key={i} 
-                            className={`level-bar ${i < skill.years ? 'active' : ''}`}
-                            style={{ background: i < skill.years ? `var(${abilities[selectedAbility].color})` : '#333' }}
+                          <div
+                            key={i}
+                            className={`level-bar ${
+                              i < skill.years ? "active" : ""
+                            }`}
+                            style={{
+                              background:
+                                i < skill.years
+                                  ? `var(${abilities[selectedAbility].color})`
+                                  : "#333",
+                            }}
                           />
                         ))}
                       </div>
@@ -175,28 +231,37 @@ const Skills = () => {
                 <div className="stat-bar">
                   <span>PROFICIENCY</span>
                   <div className="bar">
-                    <div className="fill" style={{ 
-                      width: `${80 + (selectedAbility * 5)}%`,
-                      background: `var(${abilities[selectedAbility].color})`
-                    }}></div>
+                    <div
+                      className="fill"
+                      style={{
+                        width: `${80 + selectedAbility * 5}%`,
+                        background: `var(${abilities[selectedAbility].color})`,
+                      }}
+                    ></div>
                   </div>
                 </div>
                 <div className="stat-bar">
                   <span>EXPERIENCE</span>
                   <div className="bar">
-                    <div className="fill" style={{ 
-                      width: `${70 + (selectedAbility * 10)}%`,
-                      background: `var(${abilities[selectedAbility].color})`
-                    }}></div>
+                    <div
+                      className="fill"
+                      style={{
+                        width: `${70 + selectedAbility * 10}%`,
+                        background: `var(${abilities[selectedAbility].color})`,
+                      }}
+                    ></div>
                   </div>
                 </div>
                 <div className="stat-bar">
                   <span>IMPACT</span>
                   <div className="bar">
-                    <div className="fill" style={{ 
-                      width: `${90 - (selectedAbility * 2)}%`,
-                      background: `var(${abilities[selectedAbility].color})`
-                    }}></div>
+                    <div
+                      className="fill"
+                      style={{
+                        width: `${90 - selectedAbility * 2}%`,
+                        background: `var(${abilities[selectedAbility].color})`,
+                      }}
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -208,11 +273,14 @@ const Skills = () => {
           <h3>CAREER PROGRESSION</h3>
           <div className="timeline-items">
             <div className="timeline-item">
-              <div className="timeline-marker"></div>
+              <div className="timeline-marker first-marker"></div>
               <div className="timeline-content corner-clip">
                 <h4>Software Engineer</h4>
                 <span className="timeline-date">2023 - Present</span>
-                <p>Mosaic Solutions - Optimized databases by 60%, built serverless solutions processing 10M+ records</p>
+                <p>
+                  Mosaic Solutions - Optimized databases by 60%, built
+                  serverless solutions processing 10M+ records
+                </p>
               </div>
             </div>
             <div className="timeline-item">
@@ -220,7 +288,10 @@ const Skills = () => {
               <div className="timeline-content corner-clip">
                 <h4>CTO & Full Stack Developer</h4>
                 <span className="timeline-date">2022 - 2023</span>
-                <p>Partsman PH - Built $2M+ e-commerce platform, managed 4 developers, achieved 99.9% uptime</p>
+                <p>
+                  Partsman PH - Built $2M+ e-commerce platform, managed 4
+                  developers, achieved 99.9% uptime
+                </p>
               </div>
             </div>
             <div className="timeline-item">
@@ -228,14 +299,17 @@ const Skills = () => {
               <div className="timeline-content corner-clip">
                 <h4>Full Stack Developer</h4>
                 <span className="timeline-date">2019 - 2022</span>
-                <p>Day 1 Tech Inc - Delivered 20+ custom web solutions, built CMS handling 100K+ content items</p>
+                <p>
+                  Day 1 Tech Inc - Delivered 20+ custom web solutions, built CMS
+                  handling 100K+ content items
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;

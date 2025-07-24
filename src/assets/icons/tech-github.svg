@@ -1,0 +1,49 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- GitHub octocat-inspired design -->
+  <g transform="translate(20,20)" filter="url(#glow)">
+    <!-- Main body circle -->
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#FF4654" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="14" fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Inner structure -->
+    <circle cx="0" cy="0" r="10" fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Cat ears -->
+    <path d="M-8,-10 L-6,-14 L-4,-10 Z" fill="#FF4654" opacity="0.8"/>
+    <path d="M4,-10 L6,-14 L8,-10 Z" fill="#FF4654" opacity="0.8"/>
+    
+    <!-- Eyes -->
+    <circle cx="-4" cy="-4" r="2" fill="#FF4654"/>
+    <circle cx="4" cy="-4" r="2" fill="#FF4654"/>
+    <circle cx="-4" cy="-4" r="1" fill="#0D1117"/>
+    <circle cx="4" cy="-4" r="1" fill="#0D1117"/>
+    
+    <!-- Mouth -->
+    <path d="M-2,2 Q0,4 2,2" fill="none" stroke="#FF4654" stroke-width="1.5" opacity="0.8"/>
+    
+    <!-- Arms/tentacles -->
+    <path d="M-10,-2 Q-14,0 -12,4 Q-10,6 -8,4" fill="none" stroke="#FF4654" stroke-width="1.5" opacity="0.8"/>
+    <path d="M10,-2 Q14,0 12,4 Q10,6 8,4" fill="none" stroke="#FF4654" stroke-width="1.5" opacity="0.8"/>
+    
+    <!-- Git branches -->
+    <circle cx="-6" cy="8" r="1" fill="#FF4654"/>
+    <circle cx="0" cy="10" r="1" fill="#FF4654"/>
+    <circle cx="6" cy="8" r="1" fill="#FF4654"/>
+    <line x1="-6" y1="8" x2="0" y2="10" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="10" x2="6" y2="8" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- GitHub text -->
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="2.5" 
+          fill="#FF4654" font-weight="bold">GIT</text>
+  </g>
+</svg>

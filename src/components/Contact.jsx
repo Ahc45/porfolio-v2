@@ -1,43 +1,52 @@
-import React, { useState } from 'react'
-import './Contact.css'
+import { useState } from "react";
+import "./Contact.css";
+
+// Import Valorant-themed contact icons
+import EmailIcon from "../assets/icons/contact-email.svg";
+import LinkedInIcon from "../assets/icons/contact-linkedin.svg";
+import GitHubIcon from "../assets/icons/contact-github.svg";
+import PortfolioIcon from "../assets/icons/contact-portfolio.svg";
+import PhoneIcon from "../assets/icons/contact-phone.svg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
+    e.preventDefault();
+    setIsSubmitting(true);
+
     setTimeout(() => {
-      setIsSubmitting(false)
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      alert('Message sent successfully! I will respond within 12 hours.')
-    }, 2000)
-  }
+      setIsSubmitting(false);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      alert("Message sent successfully! I will respond within 12 hours.");
+    }, 2000);
+  };
 
   return (
     <section className="contact">
       <div className="contact-background tactical-grid"></div>
       <div className="contact-background-text">CONTACT</div>
-      
+
       <div className="contact-container">
         <div className="section-header">
           <h2 className="section-title">LET'S BUILD SOMETHING AMAZING</h2>
-          <p className="section-subtitle">Ready to scale your business with cutting-edge technology?</p>
+          <p className="section-subtitle">
+            Ready to scale your business with cutting-edge technology?
+          </p>
         </div>
 
         <div className="contact-grid">
@@ -64,8 +73,14 @@ const Contact = () => {
             </div>
 
             <div className="contact-methods">
-              <a href="mailto:Davemarkcandar@gmail.com" className="contact-method corner-clip glow-on-hover" style={{textDecoration: 'none', color: 'inherit'}}>
-                <div className="method-icon">📧</div>
+              <a
+                href="mailto:Davemarkcandar@gmail.com"
+                className="contact-method corner-clip glow-on-hover"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="method-icon">
+                  <img src={EmailIcon} alt="Email" width="32" height="32" />
+                </div>
                 <div className="method-info">
                   <h4>EMAIL PROTOCOL</h4>
                   <p>Davemarkcandar@gmail.com</p>
@@ -73,8 +88,36 @@ const Contact = () => {
                 <div className="method-status">SECURE</div>
               </a>
 
-              <a href="https://www.linkedin.com/in/dave-mark-candar-9216717b" target="_blank" rel="noopener noreferrer" className="contact-method corner-clip glow-on-hover" style={{textDecoration: 'none', color: 'inherit'}}>
-                <div className="method-icon">💼</div>
+              <a
+                href="tel:+639948739589"
+                className="contact-method corner-clip glow-on-hover"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="method-icon">
+                  <img src={PhoneIcon} alt="Phone" width="32" height="32" />
+                </div>
+                <div className="method-info">
+                  <h4>PHONE PROTOCOL</h4>
+                  <p>+63 994 873 9589</p>
+                </div>
+                <div className="method-status">MOBILE</div>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/dave-mark-candar-9216717b"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-method corner-clip glow-on-hover"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="method-icon">
+                  <img
+                    src={LinkedInIcon}
+                    alt="LinkedIn"
+                    width="32"
+                    height="32"
+                  />
+                </div>
                 <div className="method-info">
                   <h4>LINKEDIN NETWORK</h4>
                   <p>/in/dave-mark-candar-9216717b</p>
@@ -82,8 +125,16 @@ const Contact = () => {
                 <div className="method-status">ACTIVE</div>
               </a>
 
-              <a href="https://github.com/Ahc45" target="_blank" rel="noopener noreferrer" className="contact-method corner-clip glow-on-hover" style={{textDecoration: 'none', color: 'inherit'}}>
-                <div className="method-icon">🐙</div>
+              <a
+                href="https://github.com/Ahc45"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-method corner-clip glow-on-hover"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="method-icon">
+                  <img src={GitHubIcon} alt="GitHub" width="32" height="32" />
+                </div>
                 <div className="method-info">
                   <h4>GITHUB REPOSITORY</h4>
                   <p>/Ahc45</p>
@@ -91,8 +142,21 @@ const Contact = () => {
                 <div className="method-status">PUBLIC</div>
               </a>
 
-              <a href="https://ahc45.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" className="contact-method corner-clip glow-on-hover" style={{textDecoration: 'none', color: 'inherit'}}>
-                <div className="method-icon">🌐</div>
+              <a
+                href="https://ahc45.github.io/Portfolio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-method corner-clip glow-on-hover"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="method-icon">
+                  <img
+                    src={PortfolioIcon}
+                    alt="Portfolio"
+                    width="32"
+                    height="32"
+                  />
+                </div>
                 <div className="method-info">
                   <h4>PORTFOLIO SITE</h4>
                   <p>ahc45.github.io/Portfolio/</p>
@@ -172,35 +236,22 @@ const Contact = () => {
                   />
                 </div>
 
-                <button 
-                  type="submit" 
-                  className={`submit-btn arrow-clip glow-on-hover ${isSubmitting ? 'submitting' : ''}`}
+                <button
+                  type="submit"
+                  className={`submit-btn arrow-clip glow-on-hover ${
+                    isSubmitting ? "submitting" : ""
+                  }`}
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
+                  {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
                 </button>
               </form>
             </div>
           </div>
         </div>
-
-        <div className="footer-stats">
-          <div className="footer-stat">
-            <span className="stat-icon">⚡</span>
-            <span className="stat-text">Lightning Fast Response</span>
-          </div>
-          <div className="footer-stat">
-            <span className="stat-icon">🛡️</span>
-            <span className="stat-text">Secure Communication</span>
-          </div>
-          <div className="footer-stat">
-            <span className="stat-icon">🎯</span>
-            <span className="stat-text">Precision Development</span>
-          </div>
-        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

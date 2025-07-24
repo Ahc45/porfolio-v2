@@ -1,0 +1,75 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="perfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4654;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFCC00;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Performance optimization -->
+  <g transform="translate(30,30)" filter="url(#glow)">
+    <!-- Lightning bolt (speed indicator) -->
+    <path d="M-8,-18 L6,-6 L-2,-6 L8,18 L-6,6 L2,6 Z" 
+          fill="url(#perfGrad)" stroke="#FF4654" stroke-width="2"/>
+    
+    <!-- Speed lines -->
+    <g stroke="#FFCC00" stroke-width="2" opacity="0.8">
+      <path d="M-20,-10 L-15,-10"/>
+      <path d="M-20,-5 L-12,-5"/>
+      <path d="M-20,0 L-14,0"/>
+      <path d="M-20,5 L-13,5"/>
+      <path d="M-20,10 L-11,10"/>
+    </g>
+    
+    <!-- Performance metrics -->
+    <g stroke="#00FF88" stroke-width="1.5" fill="none">
+      <path d="M12,-15 L15,-12 L18,-10 L20,-5"/>
+      <circle cx="20" cy="-5" r="2" fill="#00FF88"/>
+    </g>
+    
+    <!-- Optimization indicators -->
+    <g fill="#FFCC00" opacity="0.8">
+      <polygon points="15,-8 17,-10 19,-8"/>
+      <polygon points="12,8 14,6 16,8"/>
+      <polygon points="-15,12 -13,10 -11,12"/>
+    </g>
+    
+    <!-- Turbo boost effect -->
+    <g stroke="#FFCC00" stroke-width="1" fill="none" opacity="0.6">
+      <circle cx="0" cy="0" r="10"/>
+      <circle cx="0" cy="0" r="15"/>
+      <circle cx="0" cy="0" r="20"/>
+    </g>
+    
+    <!-- Energy particles -->
+    <circle cx="-18" cy="-15" r="2" fill="#FFCC00" opacity="0.8"/>
+    <circle cx="18" cy="15" r="2" fill="#FFCC00" opacity="0.8"/>
+    <circle cx="-15" cy="18" r="1.5" fill="#FF4654" opacity="0.6"/>
+    <circle cx="15" cy="-18" r="1.5" fill="#FF4654" opacity="0.6"/>
+    
+    <!-- Tactical frame -->
+    <rect x="-25" y="-25" width="50" height="50" fill="none" stroke="#FF4654" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Corner brackets -->
+    <path d="M-25,-25 L-20,-25 M-25,-25 L-25,-20 M20,-25 L25,-25 M25,-25 L25,-20 M-25,20 L-25,25 M-25,25 L-20,25 M25,20 L25,25 M20,25 L25,25" 
+          stroke="#FFCC00" stroke-width="2" fill="none"/>
+    
+    <!-- Power indicators -->
+    <circle cx="-22" cy="-22" r="1.5" fill="#FFCC00"/>
+    <circle cx="22" cy="-22" r="1.5" fill="#FFCC00"/>
+    <circle cx="22" cy="22" r="1.5" fill="#FFCC00"/>
+    <circle cx="-22" cy="22" r="1.5" fill="#FFCC00"/>
+    
+    <!-- Central core -->
+    <circle cx="0" cy="12" r="3" fill="#FFCC00" opacity="0.8"/>
+    <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="2.5" 
+          fill="#0D1117" font-weight="bold">PERF</text>
+  </g>
+</svg>

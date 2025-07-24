@@ -1,0 +1,43 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Python interlinked design -->
+  <g transform="translate(20,20)" filter="url(#glow)">
+    <!-- Top section -->
+    <path d="M-8,-12 L8,-12 Q10,-10 10,-8 L10,-2 Q8,0 6,0 L-6,0 Q-8,-2 -8,-4 L-8,-10 Q-8,-12 -8,-12 Z" 
+          fill="none" stroke="#FF4654" stroke-width="1.5" opacity="0.8"/>
+    <path d="M-8,-12 L8,-12 Q10,-10 10,-8 L10,-2 Q8,0 6,0 L-6,0 Q-8,-2 -8,-4 L-8,-10 Q-8,-12 -8,-12 Z" 
+          fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Bottom section -->
+    <path d="M8,12 L-8,12 Q-10,10 -10,8 L-10,2 Q-8,0 -6,0 L6,0 Q8,2 8,4 L8,10 Q8,12 8,12 Z" 
+          fill="none" stroke="#FF4654" stroke-width="1.5" opacity="0.8"/>
+    <path d="M8,12 L-8,12 Q-10,10 -10,8 L-10,2 Q-8,0 -6,0 L6,0 Q8,2 8,4 L8,10 Q8,12 8,12 Z" 
+          fill="#FF4654" opacity="0.1"/>
+    
+    <!-- Connection line -->
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#FF4654" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Python dots -->
+    <circle cx="-4" cy="-8" r="1.5" fill="#FF4654"/>
+    <circle cx="4" cy="8" r="1.5" fill="#FF4654"/>
+    
+    <!-- Corner accents -->
+    <circle cx="-8" cy="-12" r="1" fill="#FF4654" opacity="0.6"/>
+    <circle cx="8" cy="-12" r="1" fill="#FF4654" opacity="0.6"/>
+    <circle cx="8" cy="12" r="1" fill="#FF4654" opacity="0.6"/>
+    <circle cx="-8" cy="12" r="1" fill="#FF4654" opacity="0.6"/>
+    
+    <!-- Central text -->
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="3" 
+          fill="#FF4654" font-weight="bold" opacity="0.8">PY</text>
+  </g>
+</svg>

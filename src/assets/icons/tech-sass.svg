@@ -1,0 +1,39 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- SASS curved bracket design -->
+  <g transform="translate(20,20)" filter="url(#glow)">
+    <path d="M-8,-12 Q-12,-8 -12,0 Q-12,8 -8,12 Q-4,8 -4,0 Q-4,-8 -8,-12 Z" 
+          fill="none" stroke="#FF4654" stroke-width="1.5" opacity="0.8"/>
+    <path d="M8,-12 Q12,-8 12,0 Q12,8 8,12 Q4,8 4,0 Q4,-8 8,-12 Z" 
+          fill="none" stroke="#FF4654" stroke-width="1.5" opacity="0.8"/>
+    
+    <!-- Inner curves -->
+    <path d="M-6,-8 Q-8,-4 -8,0 Q-8,4 -6,8" 
+          fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    <path d="M6,-8 Q8,-4 8,0 Q8,4 6,8" 
+          fill="none" stroke="#FF4654" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Center element -->
+    <circle cx="0" cy="0" r="2" fill="#FF4654" opacity="0.8"/>
+    <text x="0" y="1" text-anchor="middle" font-family="monospace" font-size="2" 
+          fill="#0D1117" font-weight="bold">S</text>
+    
+    <!-- Connection lines -->
+    <line x1="-4" y1="0" x2="4" y2="0" stroke="#FF4654" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Corner accents */
+    <circle cx="-8" cy="-12" r="1" fill="#FF4654"/>
+    <circle cx="8" cy="-12" r="1" fill="#FF4654"/>
+    <circle cx="-8" cy="12" r="1" fill="#FF4654"/>
+    <circle cx="8" cy="12" r="1" fill="#FF4654"/>
+  </g>
+</svg>
