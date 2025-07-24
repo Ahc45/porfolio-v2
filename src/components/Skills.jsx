@@ -1,25 +1,6 @@
 import React, { useState } from "react";
 import "./Skills.css";
 
-// Import custom tech stack icons
-import ReactIcon from "../assets/icons/tech-react.svg";
-import VueIcon from "../assets/icons/tech-vue.svg";
-import JavaScriptIcon from "../assets/icons/tech-javascript.svg";
-import HTML5Icon from "../assets/icons/tech-html5.svg";
-import TailwindIcon from "../assets/icons/tech-tailwind.svg";
-import SassIcon from "../assets/icons/tech-sass.svg";
-import LaravelIcon from "../assets/icons/tech-laravel.svg";
-import PHPIcon from "../assets/icons/tech-php.svg";
-import NodeJSIcon from "../assets/icons/tech-nodejs.svg";
-import PythonIcon from "../assets/icons/tech-python.svg";
-import MySQLIcon from "../assets/icons/tech-mysql.svg";
-import PostgreSQLIcon from "../assets/icons/tech-postgresql.svg";
-import AWSIcon from "../assets/icons/tech-aws.svg";
-import DockerIcon from "../assets/icons/tech-docker.svg";
-import LinuxIcon from "../assets/icons/tech-linux.svg";
-import GitHubIcon from "../assets/icons/tech-github.svg";
-import NginxIcon from "../assets/icons/tech-nginx.svg";
-
 // Import custom ability icons
 import FrontendIcon from "../assets/icons/ability-frontend.svg";
 import BackendIcon from "../assets/icons/ability-backend.svg";
@@ -64,12 +45,36 @@ const Skills = () => {
       icon: <img src={FrontendIcon} alt="Frontend" width="40" height="40" />,
       color: "--tech-blue",
       skills: [
-        { name: "React", icon: ReactIcon, years: 6 },
-        { name: "Vue.js", icon: VueIcon, years: 4 },
-        { name: "JavaScript", icon: JavaScriptIcon, years: 6 },
-        { name: "HTML/CSS", icon: HTML5Icon, years: 6 },
-        { name: "Tailwind", icon: TailwindIcon, years: 3 },
-        { name: "SASS", icon: SassIcon, years: 5 },
+        {
+          name: "React",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+          years: 6,
+        },
+        {
+          name: "Vue.js",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+          years: 4,
+        },
+        {
+          name: "JavaScript",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+          years: 6,
+        },
+        {
+          name: "HTML/CSS",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+          years: 6,
+        },
+        {
+          name: "Tailwind",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original-wordmark.svg",
+          years: 3,
+        },
+        {
+          name: "SASS",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+          years: 5,
+        },
       ],
     },
     {
@@ -81,12 +86,36 @@ const Skills = () => {
       icon: <img src={BackendIcon} alt="Backend" width="40" height="40" />,
       color: "--tech-red",
       skills: [
-        { name: "Laravel", icon: LaravelIcon, years: 4 },
-        { name: "PHP", icon: PHPIcon, years: 5 },
-        { name: "Node.js", icon: NodeJSIcon, years: 4 },
-        { name: "Python", icon: PythonIcon, years: 3 },
-        { name: "MySQL", icon: MySQLIcon, years: 5 },
-        { name: "PostgreSQL", icon: PostgreSQLIcon, years: 3 },
+        {
+          name: "Laravel",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+          years: 4,
+        },
+        {
+          name: "PHP",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+          years: 5,
+        },
+        {
+          name: "Node.js",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+          years: 4,
+        },
+        {
+          name: "Python",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+          years: 3,
+        },
+        {
+          name: "MySQL",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+          years: 5,
+        },
+        {
+          name: "PostgreSQL",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+          years: 3,
+        },
       ],
     },
     {
@@ -98,11 +127,31 @@ const Skills = () => {
       icon: <img src={DevOpsIcon} alt="DevOps" width="40" height="40" />,
       color: "--tech-orange",
       skills: [
-        { name: "AWS", icon: AWSIcon, years: 4 },
-        { name: "Docker", icon: DockerIcon, years: 3 },
-        { name: "Linux", icon: LinuxIcon, years: 5 },
-        { name: "GitHub", icon: GitHubIcon, years: 6 },
-        { name: "Nginx", icon: NginxIcon, years: 4 },
+        {
+          name: "AWS",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+          years: 4,
+        },
+        {
+          name: "Docker",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+          years: 3,
+        },
+        {
+          name: "Linux",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+          years: 5,
+        },
+        {
+          name: "GitHub",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+          years: 6,
+        },
+        {
+          name: "Nginx",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
+          years: 4,
+        },
       ],
     },
     {

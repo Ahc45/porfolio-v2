@@ -44,11 +44,23 @@ const Projects = () => {
     setCurrentImageIndex(0); // Reset image index when project changes
   };
 
+  // Helper function to get hue rotation for different colors
+  const getHueRotation = (colorVar) => {
+    const hueMap = {
+      '--valorant-cyan': 180, // Cyan
+      '--valorant-red': 0,    // Red (baseline)
+      '--valorant-accent': 60, // Yellow/Green accent
+      '--tech-gold': 45,      // Gold
+    };
+    return hueMap[colorVar] || 0;
+  };
+
   const projects = [
     {
       id: "CAST",
       name: "Casting Application",
       type: "Data Platform",
+      color: "--valorant-cyan", // Data/Analytics theme
       description:
         "Led database optimization reducing query times by 60% and implemented AWS serverless ETL workflows processing 10M+ records daily.",
       images: [
@@ -80,7 +92,7 @@ const Projects = () => {
       tech: [
         {
           name: "Laravel",
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
         },
         {
           name: "React",
@@ -92,7 +104,7 @@ const Projects = () => {
         },
         {
           name: "AWS Lambda",
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
         },
       ],
       status: "COMPLETED",
@@ -110,6 +122,7 @@ const Projects = () => {
       id: "PARTS",
       name: "Partsman PH E-commerce",
       type: "E-commerce Platform",
+      color: "--valorant-red", // E-commerce/Business theme
       description:
         "Architected complete e-commerce solution as CTO, managing 4 developers and delivering platform handling $2M+ in transactions.",
       images: [
@@ -141,7 +154,7 @@ const Projects = () => {
       tech: [
         {
           name: "Laravel",
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
         },
         {
           name: "React",
@@ -171,6 +184,7 @@ const Projects = () => {
       id: "NULAB",
       name: "Web Music Mixer",
       type: "Creative Platform",
+      color: "--valorant-accent", // Creative/Audio theme
       description:
         "Built innovative web music mixer with real-time audio processing and analytics dashboard tracking 50K+ user sessions.",
       images: [
@@ -202,7 +216,7 @@ const Projects = () => {
       tech: [
         {
           name: "Laravel",
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
         },
         {
           name: "Vue.js",
@@ -232,6 +246,7 @@ const Projects = () => {
       id: "KYNA",
       name: "Mobile Development Suite",
       type: "Cross-Platform",
+      color: "--tech-gold", // Mobile/Premium theme
       description:
         "Developed cross-platform mobile apps with seamless payment integration, reducing transaction processing time by 40%.",
       images: [
@@ -396,8 +411,21 @@ const Projects = () => {
 
                 <div className="tech-showcase">
                   {projects[selectedMap].tech.map((tech, index) => (
-                    <div key={index} className="tech-item-mini">
-                      <img src={tech.icon} alt={tech.name} />
+                    <div 
+                      key={index} 
+                      className="tech-item-mini"
+                      style={{
+                        borderColor: `var(${projects[selectedMap].color})`,
+                        background: `var(${projects[selectedMap].color})15`, // 15 is 5% opacity in hex
+                      }}
+                    >
+                      <img 
+                        src={tech.icon} 
+                        alt={tech.name}
+                        style={{
+                          filter: `grayscale(100%) brightness(0.8) sepia(1) hue-rotate(${getHueRotation(projects[selectedMap].color)}deg) saturate(2)`,
+                        }}
+                      />
                     </div>
                   ))}
                 </div>
