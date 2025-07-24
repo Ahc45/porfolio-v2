@@ -1,0 +1,490 @@
+.projects {
+  min-height: 100vh;
+  padding: 8rem 0 6rem 0;
+  position: relative;
+  background: linear-gradient(135deg, var(--valorant-darker) 0%, var(--valorant-blue) 100%);
+  border-top: 3px solid var(--valorant-red);
+}
+
+.projects-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+}
+
+.projects-background-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  font-family: 'Valorant', 'Inter', sans-serif;
+  font-size: 16vw;
+  font-weight: 900;
+  color: rgba(0, 212, 255, 0.03);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 50px rgba(0, 212, 255, 0.05);
+}
+
+.projects-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+/* Patch Header Section */
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.patch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, rgba(15, 20, 25, 0.9) 0%, rgba(13, 17, 23, 0.9) 100%);
+  border: 2px solid var(--valorant-red);
+  border-bottom: 4px solid var(--valorant-red);
+  position: relative;
+  overflow: hidden;
+}
+
+.patch-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 98%, rgba(255, 70, 84, 0.1) 100%),
+    linear-gradient(0deg, transparent 98%, rgba(0, 212, 255, 0.05) 100%);
+  background-size: 50px 50px, 75px 75px;
+  opacity: 0.3;
+}
+
+.valorant-logo {
+  font-family: 'Valorant', 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--valorant-red);
+  letter-spacing: 2px;
+  z-index: 1;
+  position: relative;
+}
+
+.patch-title {
+  font-family: 'Valorant', 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: 3px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  text-shadow: 0 0 20px rgba(255, 70, 84, 0.3);
+}
+
+.patch-version {
+  background: var(--valorant-red);
+  color: var(--text-primary);
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  clip-path: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+  z-index: 1;
+  position: relative;
+}
+
+/* Patch Content Layout */
+.patch-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  height: 80vh;
+}
+
+/* Agents Section (Left Sidebar) */
+.agents-section {
+  grid-row: 1 / -1;
+  background: rgba(15, 20, 25, 0.9);
+  border: 2px solid var(--valorant-red);
+  border-left: 6px solid var(--valorant-red);
+  padding: 1.5rem;
+}
+
+.agents-header {
+  margin-bottom: 2rem;
+}
+
+.updates-label {
+  font-family: 'Valorant', 'Inter', sans-serif;
+  background: var(--valorant-red);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+  margin-bottom: 1rem;
+}
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.agent-card {
+  background: rgba(13, 17, 23, 0.8);
+  border: 2px solid var(--border-primary);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.agent-card:hover {
+  border-color: var(--valorant-red);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 70, 84, 0.3);
+}
+
+.agent-card.selected {
+  border-color: var(--valorant-red);
+  background: rgba(255, 70, 84, 0.1);
+}
+
+.agent-card.selected::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--valorant-red);
+}
+
+.agent-portrait {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.agent-image {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: linear-gradient(135deg, var(--valorant-dark), var(--valorant-blue));
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.agent-card.selected .agent-image {
+  border-color: var(--valorant-red);
+  box-shadow: 0 0 15px rgba(255, 70, 84, 0.4);
+}
+
+.agent-selection-indicator {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background: var(--valorant-red);
+  border: 2px solid var(--text-primary);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.agent-card.selected .agent-selection-indicator {
+  opacity: 1;
+  animation: pulse 2s infinite;
+}
+
+.agent-name {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Features Section (Main Content) */
+.features-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.feature-card {
+  background: rgba(15, 20, 25, 0.9);
+  border: 2px solid var(--border-primary);
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  border-color: var(--valorant-red);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 70, 84, 0.2);
+}
+
+.main-feature {
+  border-left: 6px solid var(--valorant-red);
+}
+
+.secondary-feature {
+  border-left: 6px solid var(--valorant-cyan);
+}
+
+.feature-icon-large {
+  font-size: 4rem;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 10px rgba(255, 70, 84, 0.3));
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  font-family: 'Valorant', 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.feature-subtitle {
+  color: var(--valorant-red);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.tech-showcase {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tech-item-mini {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 70, 84, 0.1);
+  border: 1px solid var(--valorant-red);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.tech-item-mini:hover {
+  background: rgba(255, 70, 84, 0.2);
+  transform: scale(1.1);
+}
+
+.tech-item-mini img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0.9);
+}
+
+.tech-item-mini:hover img {
+  filter: brightness(1.2);
+}
+
+.stats-mini {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.stat-item-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-check {
+  color: var(--valorant-green);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.stat-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Bottom Section */
+.bottom-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.surrender-card {
+  border-left: 6px solid var(--valorant-yellow);
+}
+
+.ranked-card {
+  border-left: 6px solid var(--valorant-purple);
+}
+
+.surrender-icon,
+.ranked-icon {
+  font-size: 3rem;
+  opacity: 0.8;
+}
+
+.surrender-content h3,
+.ranked-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.surrender-content p,
+.ranked-content p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1200px) {
+  .patch-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    height: auto;
+  }
+  
+  .agents-section {
+    grid-row: 1;
+  }
+  
+  .agents-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .features-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .bottom-section {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 6rem 0 4rem 0;
+  }
+  
+  .patch-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .patch-title {
+    font-size: 2rem;
+  }
+  
+  .agents-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .agent-image {
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .feature-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .feature-icon-large {
+    font-size: 3rem;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+  }
+  
+  .tech-showcase {
+    justify-content: center;
+  }
+  
+  .bottom-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-container {
+    padding: 0 1rem;
+  }
+  
+  .patch-header {
+    padding: 1rem;
+  }
+  
+  .patch-title {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .agents-section {
+    padding: 1rem;
+  }
+  
+  .feature-card {
+    padding: 1rem;
+  }
+  
+  .feature-title {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,9 @@
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+}

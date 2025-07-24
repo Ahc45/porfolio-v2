@@ -1,0 +1,523 @@
+.skills {
+  min-height: 100vh;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Valorant corner brackets */
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(0, 255, 136, 0.25);
+  border-left: none;
+  border-bottom: none;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 70%, 70% 100%, 0 100%);
+  z-index: 1;
+  animation: bracketGlow 6s ease-in-out infinite;
+}
+
+.skills::after {
+  content: '';
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255, 204, 0, 0.25);
+  border-right: none;
+  border-top: none;
+  clip-path: polygon(0 0, 30% 0, 30% 30%, 100% 30%, 100% 100%, 0 100%);
+  z-index: 1;
+  animation: bracketGlow 6s ease-in-out infinite 3s;
+}
+
+@keyframes bracketGlow {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+}
+
+.skills-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+}
+
+.skills-background-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-family: 'Valorant', 'Inter', sans-serif;
+  font-size: 18vw;
+  font-weight: 900;
+  color: rgba(0, 255, 136, 0.04);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 50px rgba(0, 255, 136, 0.05);
+  animation: skillsTextRotate 12s linear infinite;
+}
+
+@keyframes skillsTextRotate {
+  0% { 
+    transform: translate(-50%, -50%) rotate(-15deg);
+    opacity: 0.04;
+  }
+  50% { 
+    transform: translate(-50%, -50%) rotate(-13deg);
+    opacity: 0.06;
+  }
+  100% { 
+    transform: translate(-50%, -50%) rotate(-15deg);
+    opacity: 0.04;
+  }
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Valorant', 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  position: relative;
+  letter-spacing: 0.1em;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--valorant-red);
+  clip-path: var(--clip-diagonal);
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.abilities-grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.ability-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ability-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(15, 20, 25, 0.6);
+  border: 2px solid var(--border-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.ability-card:hover {
+  border-color: var(--valorant-red);
+  transform: translateX(10px);
+}
+
+.ability-card.active {
+  border-color: var(--valorant-red);
+  background: rgba(255, 70, 84, 0.1);
+  box-shadow: 0 0 20px rgba(255, 70, 84, 0.3);
+}
+
+.ability-key {
+  width: 50px;
+  height: 50px;
+  background: var(--valorant-red);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.ability-info {
+  flex: 1;
+}
+
+.ability-info h3 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ability-type {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.ability-icon {
+  font-size: 2rem;
+}
+
+.ability-showcase {
+  position: relative;
+}
+
+.ability-preview {
+  background: rgba(15, 20, 25, 0.8);
+  border: 2px solid var(--border-primary);
+  padding: 2rem;
+  height: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.ability-name {
+  font-family: 'Valorant', 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.key-indicator {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  clip-path: var(--clip-corner);
+}
+
+.ability-type-badge {
+  background: var(--valorant-accent);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.ability-description {
+  margin-bottom: 2rem;
+}
+
+.ability-description p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.skill-tag {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.ability-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-bar span {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  min-width: 80px;
+}
+
+.bar {
+  flex: 1;
+  height: 8px;
+  background: var(--border-primary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 4px;
+}
+
+.experience-timeline {
+  margin-top: 4rem;
+}
+
+.experience-timeline h3 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-items::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--valorant-red);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+.timeline-marker {
+  width: 16px;
+  height: 16px;
+  background: var(--valorant-red);
+  border: 3px solid var(--valorant-dark);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-left: -8px;
+  z-index: 2;
+}
+
+.timeline-content {
+  background: rgba(15, 20, 25, 0.6);
+  border: 1px solid var(--border-primary);
+  padding: 1.5rem;
+  flex: 1;
+  backdrop-filter: blur(10px);
+}
+
+.timeline-content h4 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-date {
+  color: var(--valorant-red);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.timeline-content p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* Tech Arsenal Grid */
+.tech-arsenal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tech-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.tech-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  flex-shrink: 0;
+  padding: 0.25rem;
+}
+
+.tech-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.9) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover .tech-icon img {
+  filter: brightness(1.1) contrast(1.2);
+  transform: scale(1.1);
+}
+
+.tech-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tech-name {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.tech-years {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.tech-level {
+  flex-shrink: 0;
+}
+
+.level-bars {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.level-bar {
+  width: 3px;
+  height: 8px;
+  background: #333;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.level-bar.active {
+  height: 12px;
+}
+
+.level-bar:nth-child(2).active { height: 14px; }
+.level-bar:nth-child(3).active { height: 16px; }
+.level-bar:nth-child(4).active { height: 18px; }
+.level-bar:nth-child(5).active { height: 20px; }
+
+@media (max-width: 1024px) {
+  .abilities-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .ability-selector {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  
+  .ability-card {
+    flex-direction: column;
+    text-align: center;
+    min-width: 200px;
+  }
+  
+  .tech-arsenal-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .ability-card {
+    min-width: 150px;
+  }
+  
+  .ability-preview {
+    padding: 1.5rem;
+  }
+  
+  .preview-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}

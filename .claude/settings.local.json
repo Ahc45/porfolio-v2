@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:ahc45.github.io)",
+      "Bash(cp:*)",
+      "WebFetch(domain:www.tech-stack-icons.com)",
+      "Bash(sed:*)",
+      "Bash(npm run build:*)",
+      "Bash(timeout 5s npm run dev:*)"
+    ],
+    "deny": []
+  }
+}
