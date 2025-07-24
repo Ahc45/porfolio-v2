@@ -9,7 +9,8 @@
       "WebFetch(domain:www.tech-stack-icons.com)",
       "Bash(sed:*)",
       "Bash(npm run build:*)",
-      "Bash(timeout 5s npm run dev:*)"
+      "Bash(timeout 5s npm run dev:*)",
+      "Bash(git remote set-url:*)"
     ],
     "deny": []
   }
