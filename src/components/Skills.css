@@ -454,12 +454,10 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0.9) contrast(1.1);
   transition: all 0.3s ease;
 }
 
 .tech-item:hover .tech-icon img {
-  filter: brightness(1.1) contrast(1.2);
   transform: scale(1.1);
 }
 

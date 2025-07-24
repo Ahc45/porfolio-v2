@@ -47,10 +47,10 @@ const Projects = () => {
   // Helper function to get hue rotation for different colors
   const getHueRotation = (colorVar) => {
     const hueMap = {
-      '--valorant-cyan': 180, // Cyan
-      '--valorant-red': 0,    // Red (baseline)
-      '--valorant-accent': 60, // Yellow/Green accent
-      '--tech-gold': 45,      // Gold
+      "--valorant-cyan": 180, // Cyan
+      "--valorant-red": 0, // Red (baseline)
+      "--valorant-accent": 60, // Yellow/Green accent
+      "--tech-gold": 45, // Gold
     };
     return hueMap[colorVar] || 0;
   };
@@ -411,19 +411,21 @@ const Projects = () => {
 
                 <div className="tech-showcase">
                   {projects[selectedMap].tech.map((tech, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="tech-item-mini"
                       style={{
                         borderColor: `var(${projects[selectedMap].color})`,
                         background: `var(${projects[selectedMap].color})15`, // 15 is 5% opacity in hex
                       }}
                     >
-                      <img 
-                        src={tech.icon} 
+                      <img
+                        src={tech.icon}
                         alt={tech.name}
                         style={{
-                          filter: `grayscale(100%) brightness(0.8) sepia(1) hue-rotate(${getHueRotation(projects[selectedMap].color)}deg) saturate(2)`,
+                          filter: `grayscale(100%) brightness(0.8) sepia(1) hue-rotate(${getHueRotation(
+                            projects[selectedMap].color
+                          )}deg) saturate(2)`,
                         }}
                       />
                     </div>

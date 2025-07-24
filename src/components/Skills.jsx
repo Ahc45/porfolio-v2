@@ -18,6 +18,17 @@ import MentoringIcon from "../assets/icons/skill-mentoring.svg";
 const Skills = () => {
   const [selectedAbility, setSelectedAbility] = useState(0);
 
+  // Helper function to get hue rotation for different colors
+  const getHueRotation = (colorVar) => {
+    const hueMap = {
+      "--tech-blue": 200, // Blue (Frontend)
+      "--tech-red": 0, // Red (Backend) - baseline
+      "--tech-orange": 30, // Orange (DevOps)
+      "--tech-gold": 45, // Gold (Architect)
+    };
+    return hueMap[colorVar] || 0;
+  };
+
   // Sound effects
   const playClickSound = () => {
     const audio = new Audio(
@@ -248,7 +259,15 @@ const Skills = () => {
                     }}
                   >
                     <div className="tech-icon">
-                      <img src={skill.icon} alt={skill.name} />
+                      <img
+                        src={skill.icon}
+                        alt={skill.name}
+                        style={{
+                          filter: `grayscale(100%) brightness(0.8) sepia(1) hue-rotate(${getHueRotation(
+                            abilities[selectedAbility].color
+                          )}deg) saturate(2)`,
+                        }}
+                      />
                     </div>
                     <div className="tech-info">
                       <span className="tech-name">{skill.name}</span>
