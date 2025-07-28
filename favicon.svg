@@ -1,0 +1,32 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Tactical frame background -->
+  <rect width="32" height="32" fill="#0f1419"/>
+  
+  <!-- Angular border frame -->
+  <path d="M0 6L6 0H26L32 6V26L26 32H6L0 26V6Z" fill="#ff4654" fill-opacity="0.1"/>
+  <path d="M2 6.82843L6.82843 2H25.1716L30 6.82843V25.1716L25.1716 30H6.82843L2 25.1716V6.82843Z" stroke="#ff4654" stroke-width="1"/>
+  
+  <!-- Central "D" logo with geometric styling -->
+  <g transform="translate(8, 7)">
+    <!-- Main D shape with angular cuts -->
+    <path d="M0 0H8L14 3V15L8 18H0V0Z" fill="#ff4654"/>
+    <path d="M2 2V16H7L12 13.5V4.5L7 2H2Z" fill="#0f1419"/>
+    
+    <!-- Inner accent lines -->
+    <rect x="4" y="4" width="1" height="10" fill="#00d4ff" opacity="0.8"/>
+    <rect x="6" y="6" width="1" height="6" fill="#00ff88" opacity="0.6"/>
+  </g>
+  
+  <!-- Corner tactical indicators -->
+  <rect x="1" y="1" width="3" height="1" fill="#00d4ff" opacity="0.7"/>
+  <rect x="1" y="1" width="1" height="3" fill="#00d4ff" opacity="0.7"/>
+  
+  <rect x="28" y="1" width="3" height="1" fill="#00d4ff" opacity="0.7"/>
+  <rect x="31" y="1" width="1" height="3" fill="#00d4ff" opacity="0.7"/>
+  
+  <rect x="1" y="30" width="3" height="1" fill="#00d4ff" opacity="0.7"/>
+  <rect x="1" y="28" width="1" height="3" fill="#00d4ff" opacity="0.7"/>
+  
+  <rect x="28" y="30" width="3" height="1" fill="#00d4ff" opacity="0.7"/>
+  <rect x="31" y="28" width="1" height="3" fill="#00d4ff" opacity="0.7"/>
+</svg>
