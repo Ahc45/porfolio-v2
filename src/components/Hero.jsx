@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Hero.css";
+import myAvatar from "../assets/myAvatar.png";
 
 const Hero = () => {
   const [isGlitching, setIsGlitching] = useState(false);
@@ -42,6 +43,7 @@ const Hero = () => {
         <div className="agent-selector">
           <div className="agent-icon geometric-clip">
             <div className="agent-avatar">
+              <img src={myAvatar} alt="Dave Mark Candar" className="avatar-image" />
               <div className="avatar-border"></div>
               <div className="status-indicator"></div>
             </div>
@@ -83,7 +85,7 @@ const Hero = () => {
             <span className="stat-label">YEARS EXP</span>
           </div>
           <div className="stat-item">
-            <span className="stat-value">50+</span>
+            <span className="stat-value">20+</span>
             <span className="stat-label">PROJECTS</span>
           </div>
           <div className="stat-item">
