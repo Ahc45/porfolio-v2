@@ -2,26 +2,26 @@ import { useState, useEffect } from "react";
 import "./Navigation.css";
 
 // Import custom navigation icons (monochromatic red versions)
-import HomeIcon from '../assets/icons/nav-home-mono.svg';
-import ArsenalIcon from '../assets/icons/nav-arsenal-mono.svg';
-import MapsIcon from '../assets/icons/nav-maps-mono.svg';
-import ContactIcon from '../assets/icons/nav-contact-mono.svg';
+import HomeIcon from "../assets/icons/nav-home-mono.svg";
+import ArsenalIcon from "../assets/icons/nav-arsenal-mono.svg";
+import MapsIcon from "../assets/icons/nav-maps-mono.svg";
+import ContactIcon from "../assets/icons/nav-contact-mono.svg";
 
 // Mini-game component
 const SkillTargetGame = ({ isOpen, onClose, onComplete }) => {
-  const [gameState, setGameState] = useState('waiting'); // waiting, playing, completed
+  const [gameState, setGameState] = useState("waiting"); // waiting, playing, completed
   const [score, setScore] = useState(0);
   const [targets, setTargets] = useState([]);
   const [timeLeft, setTimeLeft] = useState(15);
   const [gameId, setGameId] = useState(0);
 
-  const skills = ['React', 'Node.js', 'AWS', 'Docker', 'Laravel', 'Python'];
+  const skills = ["React", "Node.js", "AWS", "Docker", "Laravel", "Python"];
 
   const startGame = () => {
-    setGameState('playing');
+    setGameState("playing");
     setScore(0);
     setTimeLeft(15);
-    setGameId(prev => prev + 1);
+    setGameId((prev) => prev + 1);
     generateTargets();
   };
 
@@ -32,42 +32,50 @@ const SkillTargetGame = ({ isOpen, onClose, onComplete }) => {
       x: Math.random() * 70 + 10, // 10-80% of container width
       y: Math.random() * 60 + 20, // 20-80% of container height
       hit: false,
-      moving: true
+      moving: true,
     }));
     setTargets(newTargets);
   };
 
   const hitTarget = (targetId) => {
-    setTargets(prev => prev.map(target => 
-      target.id === targetId ? { ...target, hit: true } : target
-    ));
-    setScore(prev => prev + 1);
-    
+    setTargets((prev) =>
+      prev.map((target) =>
+        target.id === targetId ? { ...target, hit: true } : target
+      )
+    );
+    setScore((prev) => prev + 1);
+
     if (score + 1 >= 6) {
-      setGameState('completed');
+      setGameState("completed");
       onComplete();
     }
   };
 
   useEffect(() => {
-    if (gameState === 'playing' && timeLeft > 0) {
-      const timer = setTimeout(() => setTimeLeft(prev => prev - 1), 1000);
+    if (gameState === "playing" && timeLeft > 0) {
+      const timer = setTimeout(() => setTimeLeft((prev) => prev - 1), 1000);
       return () => clearTimeout(timer);
-    } else if (gameState === 'playing' && timeLeft === 0) {
-      setGameState('completed');
+    } else if (gameState === "playing" && timeLeft === 0) {
+      setGameState("completed");
       if (score >= 4) onComplete(); // Need at least 4/6 to unlock resume
     }
   }, [gameState, timeLeft, score, onComplete]);
 
   // Move targets every 2 seconds
   useEffect(() => {
-    if (gameState === 'playing') {
+    if (gameState === "playing") {
       const moveInterval = setInterval(() => {
-        setTargets(prev => prev.map(target => !target.hit ? {
-          ...target,
-          x: Math.random() * 70 + 10,
-          y: Math.random() * 60 + 20
-        } : target));
+        setTargets((prev) =>
+          prev.map((target) =>
+            !target.hit
+              ? {
+                  ...target,
+                  x: Math.random() * 70 + 10,
+                  y: Math.random() * 60 + 20,
+                }
+              : target
+          )
+        );
       }, 2000);
       return () => clearInterval(moveInterval);
     }
@@ -80,13 +88,17 @@ const SkillTargetGame = ({ isOpen, onClose, onComplete }) => {
       <div className="skill-target-game">
         <div className="game-header">
           <h3>🎯 TACTICAL SKILL ASSESSMENT</h3>
-          <button className="game-close" onClick={onClose}>✕</button>
+          <button className="game-close" onClick={onClose}>
+            ✕
+          </button>
         </div>
-        
-        {gameState === 'waiting' && (
+
+        {gameState === "waiting" && (
           <div className="game-intro">
             <div className="game-briefing">
-              <p>🎮 <strong>MISSION BRIEFING</strong></p>
+              <p>
+                🎮 <strong>MISSION BRIEFING</strong>
+              </p>
               <p>Target the skills you need for your project!</p>
               <p>Hit 4+ targets in 15 seconds to unlock resume access.</p>
             </div>
@@ -96,21 +108,21 @@ const SkillTargetGame = ({ isOpen, onClose, onComplete }) => {
           </div>
         )}
 
-        {gameState === 'playing' && (
+        {gameState === "playing" && (
           <div className="game-arena">
             <div className="game-hud">
               <div className="hud-score">HITS: {score}/6</div>
               <div className="hud-timer">TIME: {timeLeft}s</div>
             </div>
             <div className="targets-container">
-              {targets.map(target => (
+              {targets.map((target) => (
                 <div
                   key={target.id}
-                  className={`skill-target ${target.hit ? 'hit' : ''}`}
+                  className={`skill-target ${target.hit ? "hit" : ""}`}
                   style={{
                     left: `${target.x}%`,
                     top: `${target.y}%`,
-                    transform: 'translate(-50%, -50%)'
+                    transform: "translate(-50%, -50%)",
                   }}
                   onClick={() => !target.hit && hitTarget(target.id)}
                 >
@@ -122,18 +134,23 @@ const SkillTargetGame = ({ isOpen, onClose, onComplete }) => {
           </div>
         )}
 
-        {gameState === 'completed' && (
+        {gameState === "completed" && (
           <div className="game-results">
             <div className="results-header">
-              <h4>{score >= 4 ? '🎉 MISSION ACCOMPLISHED!' : '💀 MISSION FAILED'}</h4>
+              <h4>
+                {score >= 4 ? "🎉 MISSION ACCOMPLISHED!" : "💀 MISSION FAILED"}
+              </h4>
               <p>Final Score: {score}/6</p>
             </div>
             {score >= 4 ? (
               <div className="mission-success">
-                <p>🏆 Excellent targeting skills! You've unlocked access to my tactical profile.</p>
-                <a 
-                  href="https://drive.google.com/file/d/1H9nDLaCtJMJMiKTQNy40zwXzV8Ku5CG9/view?usp=sharing" 
-                  target="_blank" 
+                <p>
+                  🏆 Excellent targeting skills! You've unlocked access to my
+                  tactical profile.
+                </p>
+                <a
+                  href="https://drive.google.com/file/d/1WMO3KSXadMqDV4xz1VKkppQs5B6o-d7z/view"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="resume-unlock-btn"
                 >
@@ -258,9 +275,11 @@ const Navigation = () => {
   return (
     <>
       {/* Valorant-style Horizontal Navigation */}
-      <nav className={`valorant-nav-horizontal ${isScrolled ? "scrolled" : ""}`}>
+      <nav
+        className={`valorant-nav-horizontal ${isScrolled ? "scrolled" : ""}`}
+      >
         <div className="nav-bg-overlay"></div>
-        
+
         {/* Navigation Items Container */}
         <div className="nav-items-container">
           {/* Left Side Icons */}
@@ -268,7 +287,9 @@ const Navigation = () => {
             {navigationItems.slice(0, 2).map((item) => (
               <div
                 key={item.id}
-                className={`nav-item-horizontal ${activeSection === item.id ? "active" : ""}`}
+                className={`nav-item-horizontal ${
+                  activeSection === item.id ? "active" : ""
+                }`}
                 onClick={() => handleNavClick(item)}
                 onMouseEnter={playHoverSound}
               >
@@ -281,7 +302,7 @@ const Navigation = () => {
           {/* Center HIRE ME Button */}
           <div className="nav-center">
             <button
-              className={`hire-me-btn ${resumeUnlocked ? 'unlocked' : ''}`}
+              className={`hire-me-btn ${resumeUnlocked ? "unlocked" : ""}`}
               onClick={() => {
                 playClickSound();
                 setGameOpen(true);
@@ -290,10 +311,27 @@ const Navigation = () => {
             >
               <div className="hire-btn-bg"></div>
               <div className="hire-btn-content">
-                <svg className="hire-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L22 8.5V15.5L12 22L2 15.5V8.5L12 2Z" fill="currentColor" opacity="0.8"/>
-                  <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                <svg
+                  className="hire-btn-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M12 2L22 8.5V15.5L12 22L2 15.5V8.5L12 2Z"
+                    fill="currentColor"
+                    opacity="0.8"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <circle cx="12" cy="12" r="2" fill="currentColor" />
                 </svg>
                 <span className="hire-btn-text">HIRE ME</span>
                 {resumeUnlocked && <div className="unlock-indicator">✓</div>}
@@ -312,7 +350,9 @@ const Navigation = () => {
             {navigationItems.slice(2, 4).map((item) => (
               <div
                 key={item.id}
-                className={`nav-item-horizontal ${activeSection === item.id ? "active" : ""}`}
+                className={`nav-item-horizontal ${
+                  activeSection === item.id ? "active" : ""
+                }`}
                 onClick={() => handleNavClick(item)}
                 onMouseEnter={playHoverSound}
               >
@@ -331,7 +371,7 @@ const Navigation = () => {
       </nav>
 
       {/* Mini-Game Component */}
-      <SkillTargetGame 
+      <SkillTargetGame
         isOpen={gameOpen}
         onClose={() => setGameOpen(false)}
         onComplete={() => setResumeUnlocked(true)}
