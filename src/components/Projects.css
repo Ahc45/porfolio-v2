@@ -145,6 +145,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  user-select: none;
 }
 
 .project-card-carousel:hover {
@@ -242,6 +243,21 @@
   border-radius: 12px;
 }
 
+/* Mobile Swipe Hint */
+.mobile-swipe-hint {
+  display: none;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  opacity: 0.7;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
 
 /* Modal Styles */
 .modal-overlay {
@@ -340,7 +356,7 @@
   margin: 0;
 }
 
-.project-type-badge {
+/* .project-type-badge {
   background: var(--tech-red);
   color: #fff;
   padding: 0.5rem 1rem;
@@ -349,7 +365,7 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
+} */
 
 .modal-image-showcase {
   border-radius: 8px;
@@ -359,7 +375,7 @@
 
 .modal-showcase-image {
   width: 100%;
-  height: 300px;
+  /* height: 300px; */
   object-fit: cover;
   display: block;
 }
@@ -447,7 +463,7 @@
   margin-top: 1rem;
 }
 
-.tech-item {
+.tech-item-proj {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -460,12 +476,12 @@
   min-height: 80px;
 }
 
-.tech-item:hover {
+.tech-item-proj:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.tech-item img {
+.tech-item-proj img {
   width: 32px;
   height: 32px;
   margin-bottom: 0.5rem;
@@ -483,11 +499,11 @@
   .carousel-track {
     gap: 1rem;
   }
-  
+
   .project-card-carousel {
     min-width: calc(50% - 0.5rem);
   }
-  
+
   .carousel-nav {
     width: 40px;
     height: 40px;
@@ -513,8 +529,14 @@
     font-size: 2rem;
   }
 
+  .carousel-track {
+    gap: 1rem;
+  }
+
   .project-card-carousel {
-    min-width: calc(100% - 1rem);
+    min-width: calc(100% - 2rem);
+    margin: 0 1rem;
+    flex-shrink: 0;
   }
 
   .carousel-controls {
@@ -536,6 +558,15 @@
 
   .project-image {
     height: 200px;
+  }
+
+  .mobile-swipe-hint {
+    display: block;
+  }
+
+  .projects-carousel {
+    touch-action: pan-y;
+    overflow: hidden;
   }
 
   .modal-content {
@@ -579,6 +610,15 @@
     height: 180px;
   }
 
+  .carousel-track {
+    gap: 0.5rem;
+  }
+
+  .project-card-carousel {
+    min-width: calc(100% - 1rem);
+    margin: 0 0.5rem;
+  }
+
   .carousel-nav {
     width: 32px;
     height: 32px;
@@ -594,6 +634,11 @@
     gap: 0.6rem;
   }
 
+  .mobile-swipe-hint {
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+  }
+
   .modal-header,
   .modal-body {
     padding: 1rem;
@@ -607,12 +652,12 @@
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   }
 
-  .tech-item {
+  .tech-item-proj {
     min-height: 70px;
     padding: 0.8rem;
   }
 
-  .tech-item img {
+  .tech-item-proj img {
     width: 28px;
     height: 28px;
   }
@@ -620,16 +665,36 @@
 
 /* Utility Classes */
 .corner-clip {
-  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  );
 }
 
 .geometric-clip {
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
 }
 
-.arrow-clip {
-  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);
-}
+/* .arrow-clip {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 15px) 0,
+    100% 50%,
+    calc(100% - 15px) 100%,
+    0 100%
+  );
+} */
 
 .glow-on-hover:hover {
   box-shadow: 0 0 15px var(--glow-color);

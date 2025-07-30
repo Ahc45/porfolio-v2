@@ -309,108 +309,6 @@
   border-radius: 4px;
 }
 
-.experience-timeline {
-  margin-top: 4rem;
-}
-
-.experience-timeline h3 {
-  color: var(--text-primary);
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.timeline-items {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  position: relative;
-  padding-left: 2rem;
-}
-
-.timeline-items::before {
-  content: "";
-  position: absolute;
-  left: 15px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--valorant-red);
-}
-
-.timeline-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  position: relative;
-}
-
-.timeline-marker {
-  width: 16px;
-  height: 16px;
-  background: var(--valorant-red);
-  border: 3px solid var(--valorant-dark);
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-left: -24px;
-  z-index: 2;
-}
-
-.timeline-marker.first-marker {
-  animation: heartbeat 2s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 70, 84, 0.7);
-  }
-  20% {
-    transform: scale(1.2);
-    box-shadow: 0 0 0 8px rgba(255, 70, 84, 0.3);
-  }
-  40% {
-    transform: scale(1);
-    box-shadow: 0 0 0 12px rgba(255, 70, 84, 0.1);
-  }
-  60% {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 16px rgba(255, 70, 84, 0.05);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 70, 84, 0);
-  }
-}
-
-.timeline-content {
-  background: rgba(15, 20, 25, 0.6);
-  border: 1px solid var(--border-primary);
-  padding: 1.5rem;
-  flex: 1;
-  backdrop-filter: blur(10px);
-}
-
-.timeline-content h4 {
-  color: var(--text-primary);
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.timeline-date {
-  color: var(--valorant-red);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-.timeline-content p {
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-top: 1rem;
-}
 
 /* Tech Arsenal Grid */
 .tech-arsenal-grid {
@@ -432,7 +330,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .tech-item:hover {
   background: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
@@ -454,10 +351,12 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: brightness(0.9) contrast(1.1);
   transition: all 0.3s ease;
 }
 
 .tech-item:hover .tech-icon img {
+  filter: brightness(1.1) contrast(1.2);
   transform: scale(1.1);
 }
 

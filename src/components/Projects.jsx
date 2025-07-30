@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Projects.css";
 
 // Project Images
@@ -17,6 +17,22 @@ const Projects = () => {
   const [selectedMap, setSelectedMap] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Track window size for mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Sound effects
   const playClickSound = () => {
@@ -68,6 +84,66 @@ const Projects = () => {
       "--tech-gold": 45, // Gold
     };
     return hueMap[colorVar] || 0;
+  };
+
+  // Touch/Swipe handlers for mobile
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    const endX = e.changedTouches[0].pageX;
+    const diff = startX - endX;
+    
+    // Minimum swipe distance to trigger navigation
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && carouselIndex < projects.length - 1) {
+        // Swipe left - next project
+        nextProject();
+      } else if (diff < 0 && carouselIndex > 0) {
+        // Swipe right - previous project
+        prevProject();
+      }
+    }
+  };
+
+  // Mouse drag handlers for desktop
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+  };
+
+  const handleMouseUp = (e) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    const endX = e.pageX;
+    const diff = startX - endX;
+    
+    // Minimum drag distance to trigger navigation
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && carouselIndex < projects.length - 1) {
+        // Drag left - next project
+        nextProject();
+      } else if (diff < 0 && carouselIndex > 0) {
+        // Drag right - previous project
+        prevProject();
+      }
+    }
   };
 
   const projects = [
@@ -593,18 +669,28 @@ const Projects = () => {
 
         {/* Carousel Layout */}
         <div className="carousel-wrapper">
-          <div className="projects-carousel">
+          <div 
+            className="projects-carousel"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={() => setIsDragging(false)}
+          >
             <div
               className="carousel-track"
               style={{
-                transform: `translateX(-${carouselIndex * 33.333}%)`,
+                transform: `translateX(-${carouselIndex * (isMobile ? 100 : 33.333)}%)`,
+                transition: isDragging ? 'none' : 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
               }}
             >
               {projects.map((project, index) => (
                 <div
                   key={project.id}
                   className="project-card-carousel corner-clip"
-                  onClick={() => handleProjectClick(index)}
+                  onClick={() => !isDragging && handleProjectClick(index)}
                   onMouseEnter={playHoverSound}
                   style={{
                     borderColor: `var(${project.color})`,
@@ -665,10 +751,15 @@ const Projects = () => {
             className="carousel-nav carousel-nav-next geometric-clip"
             onClick={nextProject}
             onMouseEnter={playHoverSound}
-            disabled={carouselIndex >= projects.length - 3}
+            disabled={carouselIndex >= projects.length - 1}
           >
             ›
           </button>
+        </div>
+
+        {/* Mobile Swipe Instruction */}
+        <div className="mobile-swipe-hint">
+          <span>← Swipe to navigate →</span>
         </div>
       </div>
 
@@ -686,9 +777,15 @@ const Projects = () => {
             <div className="modal-header">
               <div className="modal-title-section">
                 <h3 className="modal-title">{projects[selectedMap].name}</h3>
+              </div>
+              <div>
                 <span
                   className="project-type-badge arrow-clip"
-                  style={{ background: `var(${projects[selectedMap].color})` }}
+                  style={{
+                    width: "fit-content",
+                    marginBottom: "1rem",
+                    fontSize: "0.5rem",
+                  }}
                 >
                   {projects[selectedMap].type}
                 </span>
@@ -754,7 +851,7 @@ const Projects = () => {
                     {projects[selectedMap].tech.map((tech, index) => (
                       <div
                         key={index}
-                        className="tech-item geometric-clip glow-on-hover"
+                        className="tech-item-proj geometric-clip glow-on-hover"
                         style={{
                           borderColor: `var(${projects[selectedMap].color})`,
                           "--glow-color": `var(${projects[selectedMap].color})`,

@@ -4,6 +4,7 @@ import "./Navigation.css";
 // Import custom navigation icons (monochromatic red versions)
 import HomeIcon from "../assets/icons/nav-home-mono.svg";
 import ArsenalIcon from "../assets/icons/nav-arsenal-mono.svg";
+import ExperienceIcon from "../assets/icons/nav-arsenal-mono.svg"; // Reusing arsenal icon for now
 import MapsIcon from "../assets/icons/nav-maps-mono.svg";
 import ContactIcon from "../assets/icons/nav-contact-mono.svg";
 
@@ -209,6 +210,12 @@ const Navigation = () => {
       section: ".skills",
     },
     {
+      id: "experience",
+      label: "CAREER",
+      icon: <img src={ExperienceIcon} alt="Experience" width="24" height="24" />,
+      section: ".experience",
+    },
+    {
       id: "maps",
       label: "MAPS",
       icon: <img src={MapsIcon} alt="Maps" width="24" height="24" />,
@@ -256,6 +263,9 @@ const Navigation = () => {
               break;
             case "skills":
               setActiveSection("arsenal");
+              break;
+            case "experience":
+              setActiveSection("experience");
               break;
             case "projects":
               setActiveSection("maps");
@@ -347,7 +357,7 @@ const Navigation = () => {
 
           {/* Right Side Icons */}
           <div className="nav-section nav-right">
-            {navigationItems.slice(2, 4).map((item) => (
+            {navigationItems.slice(2, 5).map((item) => (
               <div
                 key={item.id}
                 className={`nav-item-horizontal ${
